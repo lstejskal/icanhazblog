@@ -5,7 +5,7 @@ class Article
   field :title
   # TODO will string data type be enough? check out mongodb documentation
   field :content, :type => String
-  field :visible, :type => Boolean
+  field :visible, :type => Boolean, :default => false
   field :published_at, :type => DateTime
   
   embeds_many :comments
