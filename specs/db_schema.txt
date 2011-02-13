@@ -1,0 +1,38 @@
+
+icanhazblog db schema:
+
+User (just one for now: admin)
+
+:email
+:password
+:nickname
+:admin
+:updated_at
+:last_login
+
+Article
+
+:title :string
+:content :text
+:visible :boolean
+
+:created_at :time
+:updated_at :time
+:published_at :time
+
+has_many :comments
+has_many :tags
+
+Comment (embedded in article)
+
+:title :str
+:content :str (limited to 500 chars)
+:user_nickname :str (except admin)
+:user_location :str
+:created_at :str
+
+Tag (embedded in article)
+
+:name :string (only certain format like: ruby_on_rails)
+:created_at
+

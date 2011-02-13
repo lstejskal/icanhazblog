@@ -1,0 +1,8 @@
+
+12.2.
+icanhasblog (5,5h:
+    - write free-form blog specifications (1h)
+    - write user stories for blog specifications (2h)
+    - write additional tasks and estimate total time
+        needed for project: 30 hours (1h)
+    - design database schema (1,5h)
