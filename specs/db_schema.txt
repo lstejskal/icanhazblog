@@ -36,3 +36,9 @@ Tag (embedded in article)
 :name :string (only certain format like: ruby_on_rails)
 :created_at
 
+model generator commands:
+rails g model user email:string password_hash:string password_salt:string nickname:string admin:boolean last_login:time
+rails g scaffold article title:string content:text visible:boolean published_at:time
+rails g model comment title:string content:string user_nickname:string user_location:string
+rails g model tag name:string
+
