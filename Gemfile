@@ -19,6 +19,7 @@ gem 'mongo', '1.2.1'
 gem 'bson_ext', '1.2.1'
 gem 'mongoid', '= 2.0.0.rc.6'
 
+gem 'bcrypt-ruby', :require => 'bcrypt' 
 gem 'nifty-generators'
 
 group :test do
