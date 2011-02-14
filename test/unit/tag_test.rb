@@ -2,15 +2,15 @@ require 'test_helper'
 
 class TagTest < ActiveSupport::TestCase
 
-  context "When creating Tag, it" do
-
-    setup do
-      @tag = Factory.build(:tag)
-    end
+  setup do
+    @tag = Factory.build(:tag)
+  end
     
-    teardown do
-      @tag.destroy
-    end
+  teardown do
+    @tag.destroy
+  end
+
+  context "When creating Tag, it" do
 
     should "not save without name" do
       @tag.name = nil
