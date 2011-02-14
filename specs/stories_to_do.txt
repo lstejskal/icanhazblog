@@ -1,9 +1,5 @@
 
-project name: I can haz blog?!
-
-project alias: icanhazblog
-
-Tasks:
+User stories left:
 
 title: show list of articles
 desc: user sees list of articles
@@ -71,17 +67,3 @@ est: 1
 title: admin can delete comments
 desc: admin can delete any comment of an article
 est: 1
-
-Tasks:
-
-- write free-form specs, user stories, tasks and estimates 3 DONE
-
-- design database schema 1 DONE
-    
-- create basic models with tests 2 DONE
-
-- create factories for models 2 DONE
-
-+ user stories: 24
-
-First milestone estimate: 32 hours -> four eight-hour work days

@@ -6,3 +6,14 @@ icanhasblog (5,5h:
     - write additional tasks and estimate total time
         needed for project: 30 hours (1h)
     - design database schema (1,5h)
+
+13.2.
+- decide to use rails instead of padrino (1h)
+- create new rails app, generate models and article scaffold (2h)
+- create factories for models (2h)
+
+14.2.
+- implement password authentification for user in model (2h)
+- refactor user model tests to use shoulda
+- implement global and local teardown of the database
+- create basic validations and tests for models: tag, comment, article (3h)
