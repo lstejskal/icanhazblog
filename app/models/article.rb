@@ -10,4 +10,9 @@ class Article
   
   embeds_many :comments
   embeds_many :tags
+  
+  validates_presence_of :title, :content
+  validates_uniqueness_of :title
+  validates_length_of :title, :minimum => 3, :maximum => 250
+  
 end
