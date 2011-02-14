@@ -2,9 +2,6 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-require 'shoulda'
-require 'factory_girl'
-
 # load factories
 # PS: comment and tag factories have to be loaded before article factory
 %w{ user comment tag article }.each do |filename|
