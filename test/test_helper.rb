@@ -8,12 +8,19 @@ require 'rails/test_help'
   require File.join(File.dirname(__FILE__), 'factories', "#{filename}_factory")
 end
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  # fixtures :all
+class ActiveSupport::TestCase  
+  def setup
+    Mongoid.master.collections.select do |collection|
+      (collection.name !~ /system/)
+    end.each(&:drop) 
+  end
+  
+  def teardown
+  end
+  
+  CHARS = ('a'..'z').to_a
 
-  # Add more helper methods to be used by all tests here...
+  def random_string(string_length = 100)
+    string_length.times.collect { CHARS.sample }.join
+  end
 end
