@@ -27,4 +27,20 @@ class User
     end      
   end
   
+  def self.find_by_email(email)
+    self.where(:email => email).first
+  end
+  
+  # check whether user has valid password
+  #
+  def self.authenticate(email, password)  
+    user = self.find_by_email(email)
+
+    if user && (user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt))
+      user
+    else  
+      nil  
+    end  
+  end  
+
 end
