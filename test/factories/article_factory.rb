@@ -6,6 +6,6 @@ Factory.define :article, :class => Article do |document|
   document.published_at           nil
 
   document.comments               5.times.map { Factory.create(:comment) } 
-  document.tag                    3.times.map { Factory.create(:tag) } 
+  document.tags                   3.times.map { Factory.create(:tag) } 
 end
 
