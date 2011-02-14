@@ -1,16 +1,16 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
+
+  setup do
+    @comment = Factory.build(:comment)
+  end
+    
+  teardown do
+    @comment.destroy
+  end
   
   context "When creating Comment, it" do
-
-    setup do
-      @comment = Factory.build(:comment)
-    end
-    
-    teardown do
-      @comment.destroy
-    end
 
     should "not save without title" do
       @comment.title = nil
