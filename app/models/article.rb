@@ -1,3 +1,7 @@
+
+# TODO this should behave as Tag model - validations, etc.
+class TagCollection < Array; end
+
 class Article
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -9,7 +13,7 @@ class Article
   field :published_at, :type => DateTime
   
   embeds_many :comments
-  embeds_many :tags
+  field :tags, :type => TagCollection, :default => TagCollection.new
   
   validates_presence_of :title, :content
   validates_uniqueness_of :title

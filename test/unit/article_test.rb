@@ -3,7 +3,7 @@ require 'test_helper'
 class ArticleTest < ActiveSupport::TestCase
  
   setup do
-    @article = Factory.build(:article)
+    @article = Factory.build(:published_article)
   end
   
   teardown do
@@ -38,16 +38,12 @@ class ArticleTest < ActiveSupport::TestCase
 
   context "When listing articles, it" do
 
-    setup do
-      @ruby_tag = Factory.create(:tag, :name => "ruby")
-      @rails_tag = Factory.create(:tag, :name => "rails")
-      @sinatra_tag = Factory.create(:tag, :name => "sinatra")
-      
+    setup do      
       Factory.create(:article,
         :title => "I like ruby",
         :content => "Lorem Ipsum",
         :published_at => Time.parse("10.02.2011"),
-        :tags => [ @ruby_tag ],
+        :tags => %w{ ruby },
         :visible => true
       )
 
@@ -55,7 +51,7 @@ class ArticleTest < ActiveSupport::TestCase
         :title => "I like ruby on rails",
         :content => "Lorem Ipsum",
         :published_at => Time.parse("10.02.2011"),
-        :tags => [ @ruby_tag, @rails_tag ],
+        :tags => %w{ ruby rails },
         :visible => true
       )
 
@@ -63,14 +59,13 @@ class ArticleTest < ActiveSupport::TestCase
         :title => "I like sinatra",
         :content => "Lorem Ipsum",
         :published_at => Time.parse("12.02.2011"),
-        :tags => [ @sinatra_tag ],
+        :tags => %w{ sinatra },
         :visible => true
       )
     end
     
     teardown do
       Article.all.each { |article| article.destroy }
-      Tag.all.each { |tag| tag.destroy }
     end
 
     should "show all articles available" do
