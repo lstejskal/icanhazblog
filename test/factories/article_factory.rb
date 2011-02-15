@@ -6,7 +6,7 @@ Factory.define :article, :class => Article do |document|
   document.published_at           nil
   
   document.comments               []
-  document.tags                   []
+  document.tags                   %w{ ruby rails sinatra }
 end
 
 Factory.define :published_article, :class => Article do |document|
@@ -16,6 +16,6 @@ Factory.define :published_article, :class => Article do |document|
   document.published_at           Time.now
   
   document.comments               []
-  document.tags                   []
+  document.tags                   %w{ ruby rails sinatra }
 end
 
