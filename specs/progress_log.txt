@@ -17,3 +17,10 @@ icanhasblog (5,5h:
 - refactor user model tests to use shoulda
 - implement global and local teardown of the database
 - create basic validations and tests for models: tag, comment, article (3h)
+
+15.2.
+- refactor factories loading
+- user sees list of articles (4h)
+- store tags in array (keep comments specific to article)
+- user can see article with comments (4h)
+

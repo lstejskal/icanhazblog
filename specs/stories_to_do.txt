@@ -1,14 +1,6 @@
 
 User stories left:
 
-title: show list of articles
-desc: user sees list of articles
-est: 1
-
-title: show article with comments
-desc: user can see article with comments
-est: 1
-
 title: write comment
 desc: user can write comment to an article
 est: 1

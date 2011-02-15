@@ -5,13 +5,13 @@ project alias: icanhazblog
 
 Tasks:
 
-title: show list of articles
+title: show list of articles 
 desc: user sees list of articles
-est: 1
+est: 1 DONE
 
 title: show article with comments
 desc: user can see article with comments
-est: 1
+est: 1 DONE
 
 title: write comment
 desc: user can write comment to an article
