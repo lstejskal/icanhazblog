@@ -1,4 +1,7 @@
 
+require_relative 'comment_factory'
+require_relative 'tag_factory'
+
 Factory.define :article, :class => Article do |document|
   document.sequence(:title)       { |n| "Article #{n}" }
   document.content                { |d| "This is a content for #{d.title}." }
