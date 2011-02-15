@@ -9,7 +9,7 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: icanhazblog_development
+  database: icanhazblog
 
 test:
   <<: *defaults
