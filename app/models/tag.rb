@@ -9,4 +9,9 @@ class Tag
   validates_presence_of :name
   validates_length_of :name, :minimum => 2, :maximum => 50
   validates_uniqueness_of :name
+  
+  def self.find_by_name(name)
+    self.where(:name => name).first
+  end
+
 end

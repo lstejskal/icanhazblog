@@ -35,4 +35,16 @@ class TagTest < ActiveSupport::TestCase
   
   end
 
+  context "Tag.find_by_name" do
+
+    should "find tag with existing name" do
+      @tag.save
+      assert_not_nil Tag.find_by_name(@tag.name)
+    end
+  
+    should "not find tag with non-existent name" do
+      assert_nil Tag.find_by_name("non-existent tag")
+    end
+  end
+
 end
