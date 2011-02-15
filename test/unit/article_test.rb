@@ -94,6 +94,17 @@ class ArticleTest < ActiveSupport::TestCase
 
   end
 
+  context "When finding article by id" do
+    should "return Article if id exists" do
+      @article.save
+      assert_equal @article.title, Article.find(@article.to_param).title
+    end
+    
+    should "raise exception if id doesn't exists" do
+      assert_raise( BSON::InvalidObjectId ){ Article.find("123") }
+    end
+  end
+
   context "When sanitizing parameters for listing/search, it" do
 
     should "symbolize keys" do

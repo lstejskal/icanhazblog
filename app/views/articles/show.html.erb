@@ -1,25 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
+  <div class="article_box">
 
-<p>
-  <b>Content:</b>
-  <%= @article.content %>
-</p>
+    <div class="article_title">
+      <%= @article.title %>
+    </div>
 
-<p>
-  <b>Visible:</b>
-  <%= @article.visible %>
-</p>
+    <div class="article_content">
+      <%= @article.content %>
+    </div>
 
-<p>
-  <b>Published at:</b>
-  <%= @article.published_at %>
-</p>
+    <div class="article_box_footer">
 
+      <div class="article_tags">
+        <%= raw list_of_tags(@article.tags) %>
+      </div>
+      
+      <div class="article_published_at">
+        Published at: <%= @article.published_at %>
+      </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+    </div>
+
+    <div class="article_comments">
+      <% @article.comments.each do |comment| %>
+        <div class="comment_box">
+          <div class="comment_title">
+            <%= user_info(comment) %>
+            <%= comment.title %>
+          </div>
+          
+          <div class="comment_content">
+            <%= comment.content %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+

@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   def show
     @article = Article.find(params[:id])
+      rescue raise(ActionController::RoutingError, "Sorry, that article doesn't exist.")
 
     respond_to do |format|
       format.html # show.html.erb
