@@ -36,4 +36,68 @@ class ArticleTest < ActiveSupport::TestCase
     
   end
 
+  context "When listing articles, it" do
+
+    setup do
+      @ruby_tag = Factory.create(:tag, :name => "ruby")
+      @rails_tag = Factory.create(:tag, :name => "rails")
+      @sinatra_tag = Factory.create(:tag, :name => "sinatra")
+      
+      Factory.create(:article,
+        :title => "I like ruby",
+        :content => "Lorem Ipsum",
+        :published_at => Time.parse("10.02.2011"),
+        :tags => [ @ruby_tag ],
+        :visible => true
+      )
+
+      Factory.create(:article,
+        :title => "I like ruby on rails",
+        :content => "Lorem Ipsum",
+        :published_at => Time.parse("10.02.2011"),
+        :tags => [ @ruby_tag, @rails_tag ],
+        :visible => true
+      )
+
+      Factory.create(:article,
+        :title => "I like sinatra",
+        :content => "Lorem Ipsum",
+        :published_at => Time.parse("12.02.2011"),
+        :tags => [ @sinatra_tag ],
+        :visible => true
+      )
+    end
+    
+    teardown do
+      Article.all.each { |article| article.destroy }
+      Tag.all.each { |tag| tag.destroy }
+    end
+
+    should "show all articles available" do
+      assert_equal 3, Article.list.count
+    end
+
+    should "show first page by default" do
+      assert_equal 1, Article.list.current_page
+    end
+
+    should "show certain number of articles set by per_page parameter" do
+      assert_equal 10, Article.list(:per_page => 10).per_page
+    end
+
+    should "show order articles by date in descending order by default" do
+      assert_equal "I like sinatra", Article.list.first.title
+    end
+
+    should "not show hidden articles" do
+      article = Article.first
+      article.visible = false
+      article.save
+      
+      assert_equal 2, Article.list.count
+    end
+
+  end
+
 end
+
