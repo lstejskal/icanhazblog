@@ -99,5 +99,20 @@ class ArticleTest < ActiveSupport::TestCase
 
   end
 
+  context "When sanitizing parameters for listing/search, it" do
+
+    should "symbolize keys" do
+      params = Article.sanitize_search_params("page" => 1, :per_page => 10)
+      assert params.keys.include?(:page)      
+      assert params.keys.include?(:per_page)
+    end
+  
+    should "discard not-allowed parameters" do
+      params = Article.sanitize_search_params("page" => 1, :id => 123)
+      assert ! params.keys.include?(:id)
+    end
+    
+  end
+
 end
 
