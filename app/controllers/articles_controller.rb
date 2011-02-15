@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = Article.list(params)
 
     respond_to do |format|
       format.html # index.html.erb

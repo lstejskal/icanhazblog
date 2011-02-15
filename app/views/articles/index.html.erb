@@ -1,29 +1,28 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Visible</th>
-    <th>Published at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.content %></td>
-    <td><%= article.visible %></td>
-    <td><%= article.published_at %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  
+  <div class="article_box">
+    <div class="article_title">
+      <%= link_to article.title, article  %>
+    </div>
+
+    <div class="article_content">
+      <%= article.content %>
+    </div>
+
+    <div class="article_box_footer">
+
+      <div class="article_comments_num">
+        <%= article.comments.count %>&nbsp;comments
+      </div>
+      
+      <div class="article_published_at">
+        Published at: <%= article.published_at %>
+      </div>
+
+    </div>
+  </div>
+
+  <hr />
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Article', new_article_path %>
