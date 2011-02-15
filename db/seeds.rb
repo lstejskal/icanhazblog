@@ -4,11 +4,11 @@
 
 # create admin account
 User.create(
-  :email => 'lukas.stejskal@myemaildomain.com'
+  :email => 'lukas.stejskal@myemaildomain.com',
   :password => 'letsdosomeblogging!',
   :nickname => 'lstejskal',
   :admin => true
 )
 
 # create basic tags
-%w{ ruby rails sinatra }.each { |tag_name| Tag.create(:name => tag_name) }
+%w{ ruby rails sinatra padrino python }.each { |tag_name| Tag.create(:name => tag_name) }
