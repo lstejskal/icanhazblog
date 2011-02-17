@@ -1,0 +1,23 @@
+== I Can Haz Blog?!
+
+Icanhazblog is a blog application running on MongoDB and Rails 3.
+
+Specification are available at link:specs directory.
+
+== Installation
+
+1. Install required gems:
+       bundle install
+
+2. Make sure your MongoDB database is running, you can change default settings in link:config/mongoid.yml
+
+3. Check if everything it working:
+       rake test
+
+4. Put initial data into database:
+       rake db:setup
+
+5. If you want to see sime dummy blog posts in the application, run:
+       rake db:generate_random_articles
+
+6. Run <tt>rails server</tt> and go to http://localhost:3000/
