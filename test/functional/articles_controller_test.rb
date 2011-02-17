@@ -2,7 +2,9 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
   def setup
-    @article = Factory.create(:published_article)    
+      @article = Factory.create(:article_ruby)
+      Factory.create(:article_rails)
+      Factory.create(:article_sinatra)
   end
 
   def teardown
@@ -12,7 +14,7 @@ class ArticlesControllerTest < ActionController::TestCase
   test "viewing list of articles" do
     get :index
     assert_response :success
-    assert_equal 1, assigns(:articles).size
+    assert_equal 3, assigns(:articles).size
   end
 
   test "viewing article" do

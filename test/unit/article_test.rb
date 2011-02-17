@@ -3,7 +3,7 @@ require 'test_helper'
 class ArticleTest < ActiveSupport::TestCase
  
   setup do
-    @article = Factory.build(:published_article)
+    @article = Factory.build(:article_ruby)
   end
   
   teardown do
@@ -38,30 +38,10 @@ class ArticleTest < ActiveSupport::TestCase
 
   context "When listing articles, it" do
 
-    setup do      
-      Factory.create(:article,
-        :title => "I like ruby",
-        :content => "Lorem Ipsum",
-        :published_at => Time.parse("10.02.2011"),
-        :tags => %w{ ruby },
-        :visible => true
-      )
-
-      Factory.create(:article,
-        :title => "I like ruby on rails",
-        :content => "Lorem Ipsum",
-        :published_at => Time.parse("10.02.2011"),
-        :tags => %w{ ruby rails },
-        :visible => true
-      )
-
-      Factory.create(:article,
-        :title => "I like sinatra",
-        :content => "Lorem Ipsum",
-        :published_at => Time.parse("12.02.2011"),
-        :tags => %w{ sinatra },
-        :visible => true
-      )
+    setup do
+      Factory.create(:article_ruby)
+      Factory.create(:article_rails)
+      Factory.create(:article_sinatra)
     end
     
     teardown do
@@ -96,8 +76,8 @@ class ArticleTest < ActiveSupport::TestCase
       articles = Article.list(:tag => 'ruby')
       
       assert_equal 2, articles.count
-      assert_equal "I like ruby", articles.first.title
-      assert_equal "I like ruby on rails", articles[1].title
+      assert_equal "I like ruby on rails", articles.first.title
+      assert_equal "I like ruby", articles[1].title
     end
 
   end
