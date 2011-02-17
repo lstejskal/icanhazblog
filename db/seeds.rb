@@ -4,8 +4,8 @@
 
 # create admin account
 User.create(
-  :email => 'lukas.stejskal@myemaildomain.com',
-  :password => 'letsdosomeblogging!',
+  :email => 'lstejskal@email.com',
+  :password => 'letsblog!',
   :nickname => 'lstejskal',
   :admin => true
 )
