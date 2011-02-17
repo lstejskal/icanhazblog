@@ -1,7 +1,7 @@
 module ArticlesHelper
   
   def link_to_tag(tag_name)
-    link_to(tag_name, articles_path)
+    link_to tag_name, articles_path( params.merge(:tag => tag_name) )
   end
   
   def list_of_tags(tags = [])
