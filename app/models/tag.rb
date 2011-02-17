@@ -16,6 +16,7 @@ class Tag
 
   # return all unique tags from articles
   # OPTIMIZE
+  # TODO return also occurence of tags
   def self.all
     Article.only(:tags).all.map(&:tags).flatten.uniq
   end

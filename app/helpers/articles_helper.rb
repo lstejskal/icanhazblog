@@ -1,11 +1,11 @@
 module ArticlesHelper
   
   def link_to_tag(tag_name)
-    link_to tag_name, articles_path( params.merge(:tag => tag_name) )
+    link_to tag_name, articles_path( Article.sanitize_search_params( params.merge(:tag => tag_name) ) )
   end
   
   def list_of_tags(tags = [])
-    "Tags: " + tags.map { |tag| link_to_tag(tag) }.join(" ")
+    tags.map { |tag| link_to_tag(tag) }.join(" ")
   end
   
   def user_info(comment)
