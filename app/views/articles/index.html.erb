@@ -15,6 +15,10 @@
       <div class="article_comments_num">
         <%= article.comments.count %>&nbsp;comments
       </div>
+
+      <div class="article_tags">
+        <%= raw list_of_tags(article.tags) %>
+      </div>
       
       <div class="article_published_at">
         Published at: <%= article.published_at %>
