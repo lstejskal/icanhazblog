@@ -11,6 +11,17 @@
 
 <div id="container">
 
+  <% flash.each do |name, msg| %>  
+    <%= content_tag :div, msg, :id => "flash#{name}" %>  
+  <% end %>  
+
+  <% if current_user %>  
+    <div id="admin_menu">
+       Logged in as <%= current_user.nickname %>  
+       <%= link_to "Log out", '' %>  
+    </div>
+   <% end %>  
+
   <div id="header"><h1>
     Blog About Programming
   </h1></div>
