@@ -30,6 +30,9 @@ class Article
     # show only visible articles
     q = q.where(:visible => true)
     
+    # show only articles which have certain tag
+    q = q.where(:tags => params[:tag]) if params[:tag]
+    
     # set order
     q = q.descending(:published_at)
     
@@ -38,7 +41,7 @@ class Article
   
   protected
   
-  ALLOWED_SEARCH_KEYS = %w{ page per_page } 
+  ALLOWED_SEARCH_KEYS = %w{ page per_page tag } 
   
   # keep only allowed parameters and symbolize them
   #

@@ -92,6 +92,14 @@ class ArticleTest < ActiveSupport::TestCase
       assert_equal 2, Article.list.count
     end
 
+    should "filter articles by tag" do
+      articles = Article.list(:tag => 'ruby')
+      
+      assert_equal 2, articles.count
+      assert_equal "I like ruby", articles.first.title
+      assert_equal "I like ruby on rails", articles[1].title
+    end
+
   end
 
   context "When finding article by id" do
