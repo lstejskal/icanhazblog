@@ -42,7 +42,7 @@
   
   <div id="extra">
     <p><strong>Tags</strong></p>
-    <p>ruby rails sinatra</p>
+    <p><%= raw list_of_tags(Tag.all.sort) %></p>
   </div>
 
   <div id="footer">
