@@ -19,15 +19,6 @@ title: show admin's twitter stream
 desc: users can see admin's recent tweets
 est: 2
 
-title: admin can log in
-desc: admin has to log in in order to
-administer the blog
-est: 2
-
-title: admin can log out
-desc: admin can log out from site
-est: 1
-
 title: admin can write articles
 desc: admin can write new articles. besides text,
 admin is able to insert pictures, video and code

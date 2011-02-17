@@ -13,6 +13,15 @@ title: show article with comments
 desc: user can see article with comments
 est: 1 DONE
 
+title: admin can log in
+desc: admin has to log in in order to
+administer the blog
+est: 2 DONE 
+
+title: admin can log out
+desc: admin can log out from site
+est: 1 DONE
+
 title: write comment
 desc: user can write comment to an article
 est: 1
@@ -30,15 +39,6 @@ est: 5
 title: show admin's twitter stream
 desc: users can see admin's recent tweets
 est: 2
-
-title: admin can log in
-desc: admin has to log in in order to
-administer the blog
-est: 2
-
-title: admin can log out
-desc: admin can log out from site
-est: 1
 
 title: admin can write articles
 desc: admin can write new articles. besides text,
