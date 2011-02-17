@@ -14,4 +14,10 @@ class Tag
     self.where(:name => name).first
   end
 
+  # return all unique tags from articles
+  # OPTIMIZE
+  def self.all
+    Article.only(:tags).all.map(&:tags).flatten.uniq
+  end
+  
 end

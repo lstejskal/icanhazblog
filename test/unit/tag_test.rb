@@ -47,4 +47,22 @@ class TagTest < ActiveSupport::TestCase
     end
   end
 
+  context "Tag.all" do
+
+    setup do
+      Factory.create(:article_ruby)
+      Factory.create(:article_rails)
+      Factory.create(:article_sinatra)
+    end
+    
+    teardown do
+      Article.all.each { |article| article.destroy }
+    end    
+
+    should "find all unique tags from articles" do
+      assert "rails,ruby,sinatra", Tag.all.sort.join(",")
+    end
+
+  end
+
 end
