@@ -10,10 +10,14 @@ class SessionsControllerTest < ActionController::TestCase
     @user.destroy
   end
 
-  test "routing login -> new session" do
+  test "routing log_in -> new session" do
     assert_routing log_in_path, { :controller => "sessions", :action => "new" }
   end  
 
+  test "routing log_out -> destroy session" do
+    assert_routing log_out_path, { :controller => "sessions", :action => "destroy" }
+  end
+  
   test "viewing login form" do
     get :new
     assert_response :success
@@ -32,6 +36,13 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to root_path
     assert_not_nil flash.notice
     assert_equal @user.to_param, session[:user_id]
+  end
+
+  test "logging out" do
+    get :destroy
+    assert_redirected_to root_path
+    assert_not_nil flash.notice
+    assert ! session[:user_id]
   end
 
 end
