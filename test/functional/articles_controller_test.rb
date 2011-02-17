@@ -17,6 +17,18 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_equal 3, assigns(:articles).size
   end
 
+  test "filtering articles by tag" do
+    get :index, :tag => "ruby"
+    assert_response :success
+    assert_equal 2, assigns(:articles).size
+  end
+
+  test "filtering articles by non-existent tag" do
+    get :index, :tag => "assembler"
+    assert_response :success
+    assert_equal 0, assigns(:articles).size
+  end
+
   test "viewing article" do
     get :show, :id => @article.to_param
     assert_response :success
