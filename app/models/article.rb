@@ -24,11 +24,18 @@ class Article
     
     params[:page] ||= 1
     params[:per_page] ||= 10
+    params[:from] = (Date.parse(params[:from]) rescue nil) if params[:from]
+    params[:to] = (Date.parse(params[:to]) rescue nil) if params[:to]
     
     q = self
     
     # show only visible articles
     q = q.where(:visible => true)
+    
+    # show only articles for certain date range
+    if params[:from] and params[:to]
+      q = where(:published_at.gte => params[:from], :published_at.lte => params[:to])
+    end
     
     # show only articles which have certain tag
     q = q.where(:tags => params[:tag]) if params[:tag]
@@ -41,7 +48,7 @@ class Article
   
   protected
   
-  ALLOWED_SEARCH_KEYS = %w{ page per_page tag } 
+  ALLOWED_SEARCH_KEYS = %w{ page per_page tag from to } 
   
   # keep only allowed parameters and symbolize them
   #

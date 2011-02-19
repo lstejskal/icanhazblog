@@ -80,6 +80,26 @@ class ArticleTest < ActiveSupport::TestCase
       assert_equal "I like ruby", articles[1].title
     end
 
+    should "filter articles by day" do
+      articles = Article.list(:from => '05.02.2011', :to => '05.02.2011')
+      
+      assert_equal 1, articles.count
+      assert_equal "I like ruby", articles.first.title
+    end
+
+    should "filter articles by date range" do
+      articles = Article.list(:from => '08.02.2011', :to => '10.02.2011')
+      
+      assert_equal 1, articles.count
+      assert_equal "I like ruby on rails", articles.first.title
+    end
+
+    should "throw away invalid date attributes" do
+      articles = Article.list(:from => '08.20.2011', :to => '10.02.2011')
+      
+      assert_equal 3, articles.count
+    end
+
   end
 
   context "When finding article by id" do
