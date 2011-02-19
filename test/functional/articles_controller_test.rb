@@ -1,5 +1,4 @@
 require 'test_helper'
-
 class ArticlesControllerTest < ActionController::TestCase
   def setup
       @article = Factory.create(:article_ruby)
@@ -27,6 +26,22 @@ class ArticlesControllerTest < ActionController::TestCase
     get :index, :tag => "assembler"
     assert_response :success
     assert_equal 0, assigns(:articles).size
+  end
+
+  test "filtering articles by date range" do
+    get :index, :from => '05.02.2011', :to => '09.02.2011'
+
+    assert_response :success
+    assert_equal 1, assigns(:articles).size
+  end
+
+  test "filtering articles by invalid date range" do
+    get :index, :from => '08.20.2011', :to => '10.02.2011'
+ 
+    assert_response :success
+    assert_equal 3, assigns(:articles).size
+    # PS: we won't allow user to enter date range directly
+    assert_nil flash.alert
   end
 
   test "viewing article" do
