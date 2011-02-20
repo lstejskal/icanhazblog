@@ -1,7 +1,7 @@
 
-<div id="date_range_menu">i
+<div id="date_range_menu">
   <p><strong>Date Range</strong></p>
-  <p>this month</p>
-  <p>last month</p>
+  <p><%= search_link_to "this month", { :from => Date.current.beginning_of_month, :to => Date.current } %></p>
+  <p><%= search_link_to "last month", { :from => Date.current.prev_month.beginning_of_month, :to => Date.current.prev_month.end_of_month } %></p>
   <p>custom</p>
 </div>
