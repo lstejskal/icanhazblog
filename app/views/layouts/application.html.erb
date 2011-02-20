@@ -40,11 +40,13 @@
     </ul>
   </div>
   
-  <div id="extra">
+  <div id="tags_menu">
     <p><strong>Tags</strong></p>
     <p><%= raw list_of_tags(Tag.all.sort) %></p>
   </div>
 
+  <%= render :partial => "layouts/date_range_menu" %>
+  
   <div id="footer">
     <p>&copy; 2011 Lukáš Stejskal</p>
   </div>
