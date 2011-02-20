@@ -24,3 +24,13 @@ icanhasblog (5,5h:
 - store tags in array (keep comments specific to article)
 - user can see article with comments (4h)
 
+16.2.
+- add rake task which generates random articles
+- create basic CSS layout (header, footer, two columns)
+
+17.2.
+- release icanhazblog project on github
+- write basic readme
+- implement user story: admin can log in (2h)
+- implement user story: admin can log out (0,5h)
+- implement user story: filter articles by tags (2,5h)

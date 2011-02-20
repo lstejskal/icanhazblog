@@ -5,11 +5,6 @@ title: write comment
 desc: user can write comment to an article
 est: 1
 
-title: filter articles by tags
-desc: user see list of tags and is able
-to see all articles for given tag
-est: 2
-
 title: filter articles by date
 desc: user can view all articles
 for certain month and year
