@@ -1,16 +1,16 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-
-  setup do
-    @comment = Factory.build(:comment)
-  end
-    
-  teardown do
-    @comment.destroy
-  end
   
   context "When creating Comment, it" do
+
+    setup do
+      @comment = Factory.build(:comment)
+    end
+      
+    teardown do
+      @comment.destroy
+    end
 
     should "not save without title" do
       @comment.title = nil
@@ -47,4 +47,56 @@ class CommentTest < ActiveSupport::TestCase
     end
 
   end
+
+  context "When adding Comment to Article, it" do
+
+    setup do
+      @article = Factory.create( :article,
+        :comments => 2.times.map { Factory.create(:comment) }
+      )
+    end
+      
+    teardown do
+      @article.destroy
+    end
+
+    should "not save with invalid data" do
+      @article.comments << Comment.new()
+      assert ! @article.save
+      assert_equal :comments, @article.errors.keys.first
+
+      @article = Article.find(@article.to_param)
+      assert_equal 2, @article.comments.count
+    end
+    
+    should "save with valid data" do
+      @article.comments << Factory.build(:comment)      
+      @article = Article.find(@article.to_param)
+      
+      assert_equal 3, @article.comments.count
+    end
+
+  end
+
+  context "When deleting Comment from Article, it" do
+
+    setup do
+      @article = Factory.create( :article,
+        :comments => 2.times.map { Factory.create(:comment) }
+      )
+    end
+      
+    teardown do
+      @article.destroy
+    end
+
+    should "delete Comment from the list" do      
+      @article.comments.first.destroy
+      @article = Article.find(@article.to_param)
+
+      assert_equal 1, @article.comments.count
+    end
+
+  end
+
 end
