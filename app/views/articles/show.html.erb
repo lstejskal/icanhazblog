@@ -28,6 +28,9 @@
           <div class="comment_title">
             <%= user_info(comment) %>
             <%= comment.title %>
+            <span class="comment_published_at">            
+              <%= comment.created_at %>
+            </span>
           </div>
           
           <div class="comment_content">
