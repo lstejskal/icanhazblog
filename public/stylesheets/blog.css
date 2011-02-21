@@ -2,3 +2,23 @@
 div.article_box { margin-bottom: 2em; }
 
 div.article_title { font-size: larger; font-weight: bold; }
+
+div#article_comments {
+    margin: 1em;
+    padding: 0.5em;
+    border: 1px gray dashed;
+    background: #eee;
+}
+
+div.comment_box {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+div.comment_title { font-weight: bold; padding: 0.3em; }
+
+div.comment_content { padding: 0.3em; }
+
+span.comment_published_at {
+    float: right; font-weight: normal; font-style: italic;
+}
