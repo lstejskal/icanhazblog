@@ -34,31 +34,43 @@ class CommentsControllerTest < ActionController::TestCase
   end
 =end
 
-  test "deleting comment by admin" do
-    @admin_user = Factory.create(:admin_user)
-    @controller.expects(:current_user).returns(@admin_user)
-    @comment = @article.comments.first
+  context "admin user" do
 
-    delete :destroy, :article_id => @article.to_param, :id => @comment.to_param
-    assert_redirected_to article_path(@article.to_param)
-    assert_not_nil flash.notice
+    setup do      
+      @admin_user = Factory.create(:admin_user)
+      @controller.expects(:current_user).returns(@admin_user)
+    end
 
-    @article = Article.find( @article.to_param )
-    assert_equal 1, @article.comments.count
+    teardown do
+      @admin_user.destroy
+    end
 
-    @admin_user.destroy
+    should "delete comment" do
+      @comment = @article.comments.first
+      delete :destroy, :article_id => @article.to_param, :id => @comment.to_param
+
+      assert_redirected_to article_path(@article.to_param)
+      assert_not_nil flash.notice
+
+      @article = Article.find(@article.to_param)
+      assert_equal 1, @article.comments.count
+    end
+
   end
 
-  test "deleting comment by ordinary user" do
-    @controller.expects(:current_user).returns(nil)
-    @comment = @article.comments.first
+  context "ordinary user" do
 
-    delete :destroy, :article_id => @article.to_param, :id => @comment.to_param
-    assert_redirected_to article_path(@article.to_param)
-    assert_not_nil flash.alert, "should fail with alert message"
+    should "delete comment" do
+      @comment = @article.comments.first
+      delete :destroy, :article_id => @article.to_param, :id => @comment.to_param
 
-    @article = Article.find( @article.to_param )
-    assert_equal 2, @article.comments.count, "should not delete the comment"
+      assert_redirected_to article_path(@article.to_param)
+      assert_not_nil flash.alert, "should fail with alert message"
+
+      @article = Article.find( @article.to_param )
+      assert_equal 2, @article.comments.count, "should not delete the comment"
+    end
+
   end
 
 end
