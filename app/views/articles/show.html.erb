@@ -36,6 +36,12 @@
           <div class="comment_content">
             <%= comment.content %>
           </div>
+          
+          <div>
+            <% if current_user.try(:admin?) %>
+              <%= link_to "delete", [ @article, comment ], :confirm => "Are you sure?", :method => :delete  %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
