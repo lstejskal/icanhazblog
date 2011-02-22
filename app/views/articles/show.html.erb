@@ -21,6 +21,35 @@
 
     </div>
 
+    <div id="article_new_comment">
+      <%= form_for :comment, :url => article_comments_path(@article) do |form| %>
+        <div class="field">
+          <%= form.label :user_nickname %><br />
+          <%= form.text_field :user_location %>
+        </div>      
+
+        <div class="field">
+          <%= form.label :user_location %> (optional)<br />
+          <%= form.text_field :user_location %>
+        </div>      
+
+        <div class="field">
+          <%= form.label :title %><br />
+          <%= form.text_field :title %>
+        </div>      
+
+        <div class="field">
+          <%= form.label :content %><br />
+          <%= form.text_area :content, :cols => 20, :rows => 5 %>
+        </div>
+        
+        <div class="actions">
+          <%= form.submit %>
+        </div>        
+      <% end %>
+      end
+    </div>
+
     <div id="article_comments">
 
       <% @article.comments.each do |comment| %>

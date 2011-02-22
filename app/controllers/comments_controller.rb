@@ -1,7 +1,19 @@
 class CommentsController < ApplicationController
   def create
-    
-    
+    begin
+      @article = Article.find(params[:article_id])
+      @comment = Comment.new(params[:comment])
+      
+      raise "validation error" unless @comment.valid?
+      @article.comments << @comment
+      
+      flash[:notice] = "Comment was added."
+      redirect_to article_path(params[:article_id])
+    rescue
+      # TO DO: display errors in comment form
+      flash[:alert] = "Comment could not be added." + @comment.errors.full_messages.join(" ")
+      render :template => "articles/show"
+    end
   end
 
   def destroy
