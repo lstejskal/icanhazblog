@@ -4,6 +4,11 @@ class CommentsController < ApplicationController
       @article = Article.find(params[:article_id])
       @comment = Comment.new(params[:comment])
       
+      if current_user
+        @comment.user_nickname = current_user.nickname
+        @comment.user_location = nil
+      end
+      
       raise "validation error" unless @comment.valid?
       @article.comments << @comment
       

@@ -28,27 +28,33 @@ class CommentsControllerTest < ActionController::TestCase
     @article.destroy
   end
 
-=begin
-  test "admin should publish valid comment" do
-    post :create
-    assert_response :success
-  end
-
-  test "admin should not publish invalid comment" do
-    post :create
-    assert_response :success
-  end
-=end
-
   context "admin user" do
 
     setup do      
       @admin_user = Factory.create(:admin_user)
-      @controller.expects(:current_user).returns(@admin_user)
+      @controller.expects(:current_user).at_least(2).returns(@admin_user)
     end
 
     teardown do
       @admin_user.destroy
+    end
+
+    should "publish valid comment with auto-completed user data" do
+      @comment_data.delete(:user_nickname)
+      @comment_data.delete(:user_location)
+      post :create, :article_id => @article.to_param, :comment => @comment_data
+
+      assert_redirected_to article_path(@article.to_param)
+      assert_not_nil flash.notice
+      
+      @article = Article.find(@article.to_param)
+      assert_equal 3, @article.comments.count
+      
+      comment = @article.comments.where(:title => @comment_data[:title]).first
+      assert_equal @admin_user.nickname, comment.user_nickname,
+        "nickname should be set to admin nickname"
+      assert_equal "", comment.user_location.to_s,
+        "location should be blank"
     end
     
     should "delete comment" do
