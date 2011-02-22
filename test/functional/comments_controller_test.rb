@@ -88,7 +88,7 @@ class CommentsControllerTest < ActionController::TestCase
       assert_equal 2, @article.comments.count      
     end
 
-    should "delete comment" do
+    should "not delete comment" do
       @comment = @article.comments.first
       delete :destroy, :article_id => @article.to_param, :id => @comment.to_param
 
