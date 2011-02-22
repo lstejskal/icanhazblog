@@ -34,3 +34,11 @@ icanhasblog (5,5h:
 - implement user story: admin can log in (2h)
 - implement user story: admin can log out (0,5h)
 - implement user story: filter articles by tags (2,5h)
+
+
+20.2.
+- implement user story: user can filter articles by date range (5h)
+
+21.2.
+- implement user story: admin can delete comments (3h)
+
