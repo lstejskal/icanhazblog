@@ -7,6 +7,12 @@ class CommentsController < ApplicationController
       if current_user
         @comment.user_nickname = current_user.nickname
         @comment.user_location = nil
+      # check if nickname isn't already registered
+      else
+        if User.where(:nickname => @comment.user_nickname).first
+          @comment.errors.add(:nickname, "cannot be used. It is already used by registered user.")
+          raise "validation error"
+        end
       end
       
       raise "validation error" unless @comment.valid?

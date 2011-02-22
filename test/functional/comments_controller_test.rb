@@ -83,6 +83,23 @@ class CommentsControllerTest < ActionController::TestCase
       assert_equal 3, @article.comments.count      
     end
 
+    should "not publish valid comment under registered nickname" do
+      registered_user = Factory.create(:user)
+      @controller.expects(:current_user).at_least(2).returns(nil)
+      @comment_data[:user_nickname] = registered_user.nickname
+      
+      post :create, :article_id => @article.to_param, :comment => @comment_data
+
+      assert_response :success
+      assert_template :show
+      assert_not_nil flash.alert
+      
+      @article = Article.find(@article.to_param)
+      assert_equal 2, @article.comments.count      
+      
+      registered_user.destroy
+    end
+
     should "not publish invalid comment" do
       post :create, :article_id => @article.to_param, :comment => @blank_comment_data
 
