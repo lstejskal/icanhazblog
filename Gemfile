@@ -27,5 +27,6 @@ group :development, :test do
   gem 'turn'
   gem 'factory_girl'
   gem 'fakeweb'
+  gem 'mocha'
 end
 

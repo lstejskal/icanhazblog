@@ -49,6 +49,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mocha (0.9.12)
     mongo (1.2.1)
       bson (>= 1.2.1)
     mongoid (2.0.0.rc.6)
@@ -104,6 +105,7 @@ DEPENDENCIES
   bson_ext (= 1.2.1)
   factory_girl
   fakeweb
+  mocha
   mongo (= 1.2.1)
   mongoid (= 2.0.0.rc.6)
   nifty-generators
