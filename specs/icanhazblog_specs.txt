@@ -24,7 +24,7 @@ est: 1 DONE
 
 title: write comment
 desc: user can write comment to an article
-est: 1
+est: 1 DONE
 
 title: filter articles by tags
 desc: user see list of tags and is able
@@ -34,7 +34,7 @@ est: 2 DONE
 title: filter articles by date
 desc: user can view all articles
 for certain month and year
-est: 5
+est: 5 DONE
 
 title: show admin's twitter stream
 desc: users can see admin's recent tweets
@@ -66,11 +66,11 @@ est: 2
 
 title: admin can write comments
 desc: admin can write comment to an article
-est: 1
+est: 1 DONE
 
 title: admin can delete comments
 desc: admin can delete any comment of an article
-est: 1
+est: 1 DONE
 
 Tasks:
 

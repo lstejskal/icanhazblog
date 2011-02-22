@@ -42,3 +42,7 @@ icanhasblog (5,5h:
 21.2.
 - implement user story: admin can delete comments (3h)
 
+22.2.
+- implement user story: user can write comment (2h)
+- implement user story: user can write comment (1h)
+- bugfix: ordinary user should not save comments under registered nickname
