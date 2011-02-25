@@ -40,7 +40,31 @@ class SessionsControllerTest < ActionController::TestCase
       assert_equal @user.to_param, session[:user_id]
     end
 
+  end
+  
+  context "logged-in admin" do
+
+    setup do
+      @user = Factory.create(:admin_user)
+      post :create, :email => @user.email, :password => @user.password
+    end
+      
+    teardown do
+      @user.destroy
+    end
+
+    should "be identified as admin" do
+      assert @controller.send(:admin?)
+    end
+
+    should "have access to restricted pages" do
+      @controller.send(:admin_access_required)
+      assert :success
+      assert_nil flash.alert
+    end
+
     should "log out" do
+      assert session[:user_id]
       get :destroy
       assert_redirected_to root_path
       assert_not_nil flash.notice
