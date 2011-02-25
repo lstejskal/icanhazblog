@@ -15,6 +15,7 @@ class ArticlesControllerTest < ActionController::TestCase
     should "view list of articles" do
       get :index
       assert_response :success
+      assert_template "index"
       assert_equal 3, assigns(:articles).size
     end
 
@@ -68,6 +69,14 @@ class ArticlesControllerTest < ActionController::TestCase
       }
       
       @controller.expects(:admin_access_required).returns(true)
+      @controller.expects(:admin?).at_least(1).returns(true)
+    end
+
+    should "view admin list of articles" do
+      get :index
+      assert_response :success
+      assert_template "admin_index"
+      assert_equal 3, assigns(:articles).size
     end
 
     should "write new article" do      

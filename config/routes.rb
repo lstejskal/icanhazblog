@@ -4,6 +4,11 @@ Icanhazblog::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
 
   resources :articles do
+    member do
+      post :hide
+      post :publish
+    end
+    
     resources :comments
   end
   resources :sessions

@@ -6,8 +6,10 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.list(params)
 
-    respond_to do |format|
-      format.html # index.html.erb
+    if admin?
+      render :template => '/articles/admin_index'
+    else
+      render :action => :index
     end
   end
 
