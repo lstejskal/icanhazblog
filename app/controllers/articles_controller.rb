@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  
+  before_filter :admin_access_required, :except => [ :index, :show ]
 
   # GET /articles
   def index
@@ -41,6 +43,7 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to(@article, :notice => 'Article was successfully created.') }
       else
+        flash.now[:alert] = 'Cannot create the article.'
         format.html { render :action => "new" }
       end
     end

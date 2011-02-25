@@ -58,20 +58,47 @@ class ArticlesControllerTest < ActionController::TestCase
   
   end
   
-=begin
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+  context "admin user" do
 
-  test "should create article" do
-    assert_difference('Article.count') do
-      post :create, :article => @article.attributes
+    setup do
+      @article_data = {
+        :title => "I like blogging",
+        :content => "<p>Man, how do I like blogging and sharing my<br />" +
+          "thoughts with the world!</p>"
+      }
+      
+      @controller.expects(:admin_access_required).returns(true)
     end
 
-    assert_redirected_to article_path(assigns(:article))
-  end
+    should "write new article" do      
+      get :new
 
+      assert_response :success
+      assert assigns(:article).title.blank?
+      assert assigns(:article).content.blank?
+    end
+
+    should "not create invalid article" do      
+      post :create, :article => { :content => @article_data[:content] }
+
+      assert_response :success
+      assert_template :new
+      assert_not_nil flash.alert
+      assert ! Article.where(:title => @article_data[:title]).first
+    end
+
+    should "create valid article" do      
+      post :create, :article => @article_data
+
+      new_article = Article.where(:title => @article_data[:title]).first
+      assert_redirected_to article_path(new_article.to_param)
+      assert_not_nil flash.notice
+      assert_equal @article_data[:title], assigns(:article).title
+    end
+
+  end
+  
+=begin
   test "should get edit" do
     get :edit, :id => @article.to_param
     assert_response :success
