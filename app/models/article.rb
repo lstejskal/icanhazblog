@@ -11,7 +11,7 @@ class Article
   
   embeds_many :comments
   # TODO implement as relational reference?
-  field :tags, :type => Array
+  field :tags, :type => Array, :default => []
   
   validates_presence_of :title, :content
   validates_uniqueness_of :title
