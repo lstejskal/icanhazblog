@@ -171,6 +171,15 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_equal "I", assigns(:article).title
     end
 
+    should "convert tags string to array when updating article" do      
+      post :update, :id => @article.to_param,
+        :article => @article.attributes.merge(:tags => "ruby, rails, sinatra")
+      
+      assert_redirected_to article_path(@article.to_param)
+      assert_not_nil flash.notice
+      assert_equal %w{ ruby rails sinatra }, assigns(:article).tags
+    end
+
     # TODO add integration tests: publish/hide article, then check if there's
     # one more/less article in the list of articles...
 

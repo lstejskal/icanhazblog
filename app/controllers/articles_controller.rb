@@ -49,8 +49,11 @@ class ArticlesController < ApplicationController
   end
 
   # POST /articles
-  def create
+  def create    
     @article = Article.new(params[:article])
+
+    # TODO move into model as chain-alias method?
+    params[:article][:tags] = params[:article][:tags].to_s.split(/[\s,]+/)
 
     respond_to do |format|
       if @article.save
@@ -65,6 +68,8 @@ class ArticlesController < ApplicationController
   # PUT /articles/1
   def update
     @article = Article.find(params[:id])
+    
+    params[:article][:tags] = params[:article][:tags].to_s.split(/[\s,]+/)
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
