@@ -49,6 +49,13 @@ class Article
     
     q.paginate(params)
   end
+
+  # make article visible to users
+  def publish!
+    self.visible = true
+    self.published_at ||= Time.current
+    self.save
+  end
   
   # hide article from users
   def hide!

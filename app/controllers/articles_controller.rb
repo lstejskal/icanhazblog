@@ -65,6 +65,12 @@ class ArticlesController < ApplicationController
       end
     end
   end
+
+  def publish
+    @article = Article.find(params[:id])
+    @article.publish!
+    redirect_to(articles_path, :notice => "Article [#{@article.title}] was published.")
+  end
   
   def hide
     @article = Article.find(params[:id])

@@ -135,6 +135,17 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_equal "I", assigns(:article).title
     end
 
+    # TODO add integration tests: publish/hide article, then check if there's
+    # one more/less article in the list of articles...
+
+    should "publish article" do
+      post :publish, :id => @article.to_param
+      assert_redirected_to articles_path
+      assert_not_nil flash.notice
+      assert assigns(:article).visible
+      assert assigns(:article).published_at
+    end
+
     should "hide article" do
       post :hide, :id => @article.to_param
       assert_redirected_to articles_path

@@ -113,6 +113,28 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
+  context "Article#publish method" do
+    should "publish new article" do
+      @article = Factory.build(:unpublished_article)
+      @article.publish!
+      assert @article.visible?
+      assert_kind_of DateTime, @article.published_at
+      assert_equal Date.current, @article.published_at.to_date
+    end
+
+    should "make hidden article visible to users" do
+      @article.hide!
+      @article = Article.find(@article.to_param)
+      orig_published_at = @article.published_at
+      @article.publish!
+
+      assert @article.visible?
+      assert_kind_of DateTime, @article.published_at
+      assert_not_equal Date.current, @article.published_at.to_date
+      assert_equal orig_published_at.to_date, @article.published_at.to_date
+    end
+  end
+
   context "Article#hide method" do
     should "hide article from users" do
       @article.hide!

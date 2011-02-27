@@ -9,6 +9,14 @@ Factory.define :article, :class => Article do |document|
   document.tags                   %w{ ruby rails sinatra }
 end
 
+Factory.define :unpublished_article, :class => Article do |document|
+  document.sequence(:title)       { |n| "Article #{n}" }
+  document.content                { |d| "This is a content for #{d.title}." }
+  
+  document.comments               []
+  document.tags                   []
+end
+
 Factory.define :article_ruby, :class => Article do |document|
   document.title                  "I like ruby"
   document.content                { |d| "This is a content for #{d.title}." }
