@@ -127,6 +127,16 @@ class ArticleTest < ActiveSupport::TestCase
     end
     
   end
+  
+  context "Article protected attributes" do
+
+    should "not be saved by mass assignment" do
+      article = Article.create(@article.attributes)        
+      assert ! article.published_at
+      assert article.tags.empty?
+    end  
+
+  end
 
 end
 

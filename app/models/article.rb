@@ -2,6 +2,8 @@
 class Article
   include Mongoid::Document
   include Mongoid::Timestamps
+
+  attr_accessible :title, :content, :visible
   
   field :title
   # TODO will string data type be enough? check out mongodb documentation
