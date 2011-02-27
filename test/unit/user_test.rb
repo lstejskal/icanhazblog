@@ -82,4 +82,48 @@ class UserTest < ActiveSupport::TestCase
     end  
   end
 
+  context "User protected attributes" do
+
+    should "not be saved by mass assignment" do
+      # PS: password is a virtual attribute, has to be added manually
+      orig_user = @user.attributes.merge("password" => @user.password)
+      @user.save
+      @user.update_attributes!(
+        :email => "hackety@hack.com",
+        :password => "hacketyhack",
+        :nickname => "hacketyhack",
+        :admin => true
+      )      
+      @user = User.find(@user.to_param)
+
+      assert ! User.authenticate(@user.email, "hacketyhack")
+      assert User.authenticate(orig_user["email"], orig_user["password"])
+      assert_equal orig_user["nickname"], @user.nickname
+      assert ! @user.admin?
+    end  
+
+    should "not allow to override password params" do
+      orig_user = @user.attributes.merge("password" => @user.password)
+      @user.save
+
+      # just to generate another password_hash and password_salt
+      @bogus_user = Factory.create(:user,
+        :email => "hackety@hack.com",
+        :password => "hacketyhack",
+        :nickname => "hacketyhack"
+      )
+      
+      @user = User.find(@user.to_param)
+      @user.update_attributes!(
+        :password_hash => @bogus_user.password_hash,
+        :password_salt => @bogus_user.password_salt,
+      )
+
+      assert ! User.authenticate(@user.email, "hacketyhack")
+      assert User.authenticate(orig_user["email"], orig_user["password"])
+    end  
+
+
+  end
+
 end

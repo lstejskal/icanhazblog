@@ -2,7 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  attr_accessible :email, :password, :nickname
+  attr_accessible [] # all attributes are protected
 
   field :email
   field :password_hash
