@@ -135,10 +135,6 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_equal "I", assigns(:article).title
     end
 
-    should "get 404 error when editing non-existent article" do    
-      assert_raise(ActionController::RoutingError) { post :post, :id => "123", :article => @article.attributes }  
-    end
-
   end
   
 end
