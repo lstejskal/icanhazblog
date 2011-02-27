@@ -104,19 +104,41 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_not_nil flash.notice
       assert_equal @article_data[:title], assigns(:article).title
     end
-
-  end
   
-=begin
-  test "should get edit" do
-    get :edit, :id => @article.to_param
-    assert_response :success
-  end
+    should "edit article" do
+      get :edit, :id => @article.to_param
+      assert_response :success
+      assert_equal @article.title, assigns(:article).title
+      assert ! assigns(:article).content.blank?
+    end
 
-  test "should update article" do
-    put :update, :id => @article.to_param, :article => @article.attributes
-    assert_redirected_to article_path(assigns(:article))
+    should "get 404 error when editing non-existent article" do    
+      assert_raise(ActionController::RoutingError) { get :edit, :id => "123" }  
+    end
+
+    should "update article" do      
+      post :update, :id => @article.to_param,
+        :article => @article.attributes.merge(:title => "I like ruby very much")
+      
+      assert_redirected_to article_path(@article.to_param)      
+      assert_not_nil flash.notice
+      assert_equal "I like ruby very much", assigns(:article).title
+    end
+
+    should "not update article with invalid data" do
+      post :update, :id => @article.to_param,
+        :article => @article.attributes.merge(:title => "I")
+      
+      assert_response :success
+      assert_template :edit
+      assert_not_nil flash.alert
+      assert_equal "I", assigns(:article).title
+    end
+
+    should "get 404 error when editing non-existent article" do    
+      assert_raise(ActionController::RoutingError) { post :post, :id => "123", :article => @article.attributes }  
+    end
+
   end
-=end
   
 end

@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+      rescue raise(ActionController::RoutingError, "Sorry, that article doesn't exist.")
   end
 
   # POST /articles
@@ -59,6 +60,7 @@ class ArticlesController < ApplicationController
       if @article.update_attributes(params[:article])
         format.html { redirect_to(@article, :notice => 'Article was successfully updated.') }
       else
+        flash[:alert] = "Cannot update the article."
         format.html { render :action => "edit" }
       end
     end
