@@ -46,3 +46,19 @@ icanhasblog (5,5h:
 - implement user story: user can write comment (2h)
 - implement user story: user can write comment (1h)
 - bugfix: ordinary user should not save comments under registered nickname
+
+25.2.
+- create admin authentication methods for controllers and views
+- implement user story: admin can write (create) articles
+- create articles listing for admin
+
+27.2
+finished milestone 1:
+- implement user story: admin can edit articles
+- implement protected attributes for Article model
+- implement protected attributes for User model
+- implement user story: admin can hide articles
+- implement user story: admin can publish articles
+- add new search parameters: show_hidden and order
+- implement user story: show twitter stream
+- implement user story: admin can tag articles

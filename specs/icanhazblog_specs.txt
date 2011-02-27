@@ -3,6 +3,8 @@ project name: I can haz blog?!
 
 project alias: icanhazblog
 
+Milestone 1
+
 Tasks:
 
 title: show list of articles 
@@ -38,31 +40,31 @@ est: 5 DONE
 
 title: show admin's twitter stream
 desc: users can see admin's recent tweets
-est: 2
+est: 2 DONE
 
 title: admin can write articles
 desc: admin can write new articles. besides text,
 admin is able to insert pictures, video and code
 into articles
-est: 2
+est: 2 DONE
 
 title: admin can publish articles
 desc: articles are hidden by default. admin can
 publish them on the blog so users will see them
-est: 1
+est: 1 DONE
 
 title: admin can edit articles
 desc: admin can edit articles, including pictures,
 video and code
-est: 1
+est: 1 DONE
 
 title: admin can hide articles
 desc: admin can hide articles so users won't see them
-est: 1
+est: 1 DONE
 
 title: admin can tag articles
 desc: admin can assign tags to articles
-est: 2
+est: 2 DONE
 
 title: admin can write comments
 desc: admin can write comment to an article
