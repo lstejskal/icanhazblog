@@ -3,16 +3,22 @@ class ArticlesController < ApplicationController
   before_filter :admin_access_required, :except => [ :index, :show ]
 
   # GET /articles
+  # TODO move admin listing to admin/article controller
   def index
-    # hardcode certain params
-    params[:show_hidden] = false
-    params[:order] = "published_at"
-    
-    @articles = Article.list(params)
-
     if admin?
+      params[:show_hidden] ||= true
+      params[:order] ||= "updated_at"
+
+      @articles = Article.list(params)
+
       render :template => '/articles/admin_index'
-    else
+    else      
+      # hardcode certain params
+      params[:show_hidden] = false
+      params[:order] = "published_at"
+
+      @articles = Article.list(params)
+
       render :action => :index
     end
   end

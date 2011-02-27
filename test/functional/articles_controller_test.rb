@@ -97,6 +97,24 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_equal 3, assigns(:articles).size
     end
 
+    should "see hidden articles" do
+      Factory.create(:unpublished_article)
+      
+      get :index
+      assert_response :success
+      assert_template "admin_index"
+      assert_equal 4, assigns(:articles).size
+    end
+
+    should "view articles sorted by last updates by default" do
+      last_updated = Article.order_by(:updated_at.desc).first
+
+      get :index
+      assert_response :success
+      assert_template "admin_index"
+      assert_equal last_updated.title, assigns(:articles).first.title
+    end
+
     should "write new article" do      
       get :new
 
