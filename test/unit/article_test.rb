@@ -99,7 +99,7 @@ class ArticleTest < ActiveSupport::TestCase
       
       assert_equal 3, articles.count
     end
-
+    
   end
 
   context "When finding article by id" do
@@ -110,6 +110,13 @@ class ArticleTest < ActiveSupport::TestCase
     
     should "raise exception if id doesn't exists" do
       assert_raise( BSON::InvalidObjectId ){ Article.find("123") }
+    end
+  end
+
+  context "Article#hide method" do
+    should "hide article from users" do
+      @article.hide!
+      assert ! @article.visible?
     end
   end
 

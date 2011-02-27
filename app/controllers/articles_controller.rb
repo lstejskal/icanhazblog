@@ -65,6 +65,12 @@ class ArticlesController < ApplicationController
       end
     end
   end
+  
+  def hide
+    @article = Article.find(params[:id])
+    @article.hide!
+    redirect_to(articles_path, :notice => "Article [#{@article.title}] was hidden.")
+  end
 
   # DELETE /articles/1
   def destroy

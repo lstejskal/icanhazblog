@@ -135,6 +135,13 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_equal "I", assigns(:article).title
     end
 
+    should "hide article" do
+      post :hide, :id => @article.to_param
+      assert_redirected_to articles_path
+      assert_not_nil flash.notice
+      assert ! assigns(:article).visible
+    end
+
   end
   
 end

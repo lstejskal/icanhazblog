@@ -50,6 +50,12 @@ class Article
     q.paginate(params)
   end
   
+  # hide article from users
+  def hide!
+    self.visible = false
+    self.save
+  end
+  
   protected
   
   ALLOWED_SEARCH_KEYS = %w{ page per_page tag from to } 
