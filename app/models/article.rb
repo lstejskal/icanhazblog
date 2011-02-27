@@ -27,6 +27,8 @@ class Article
     
     params[:page] ||= 1
     params[:per_page] ||= 10
+    params[:show_hidden] ||= false
+    params[:order] ||= "published_at"
     # TODO return errors on invalid dates - after conversion into ArticleSearch model
     params[:from] = (Date.parse(params[:from]) rescue nil) if params[:from]
     params[:to] = (Date.parse(params[:to]) rescue nil) if params[:to]
@@ -34,7 +36,7 @@ class Article
     q = self
     
     # show only visible articles
-    q = q.where(:visible => true)
+    q = q.where(:visible => true) unless params[:show_hidden]
     
     # show only articles for certain date range
     if params[:from] and params[:to]
@@ -45,7 +47,7 @@ class Article
     q = q.where(:tags => params[:tag]) if params[:tag]
     
     # set order
-    q = q.descending(:published_at)
+    q = q.descending(params[:order].to_sym)
     
     q.paginate(params)
   end
@@ -65,7 +67,7 @@ class Article
   
   protected
   
-  ALLOWED_SEARCH_KEYS = %w{ page per_page tag from to } 
+  ALLOWED_SEARCH_KEYS = %w{ page per_page tag from to show_hidden order } 
   
   # keep only allowed parameters and symbolize them
   #

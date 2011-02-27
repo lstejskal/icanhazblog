@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
+    # hardcode certain params
+    params[:show_hidden] = false
+    params[:order] = "published_at"
+    
     @articles = Article.list(params)
 
     if admin?

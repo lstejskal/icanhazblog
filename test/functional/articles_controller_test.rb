@@ -19,6 +19,24 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_equal 3, assigns(:articles).size
     end
 
+    should "not see hidden articles" do
+      Factory.create(:unpublished_article)
+      
+      get :index, :show_hidden => true
+      assert_response :success
+      assert_template "index"
+      assert_equal 3, assigns(:articles).size
+    end
+
+    should "view articles sorted by last published by default" do
+      last_published = Article.order_by(:published_at.desc).first
+
+      get :index, :order => "updated_at"
+      assert_response :success
+      assert_template "index"
+      assert_equal last_published.title, assigns(:articles).first.title
+    end
+
     should "filter articles by tag" do
       get :index, :tag => "ruby"
       assert_response :success
