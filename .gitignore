@@ -1,4 +1,5 @@
 .bundle
+*.kpf
 db/*.sqlite3
 log/*.log
 doc/app/
