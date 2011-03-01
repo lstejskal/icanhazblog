@@ -63,6 +63,12 @@ class TagTest < ActiveSupport::TestCase
       assert_equal [["ruby", 2], ["rails", 1], ["sinatra", 1]], Tag.all
     end
 
+    should "find only tags from articles which are visible" do
+      Factory.create(:unpublished_article, :tags => %w{ padrino })
+      
+      assert_equal [["ruby", 2], ["rails", 1], ["sinatra", 1]], Tag.all
+    end
+
   end
 
 end

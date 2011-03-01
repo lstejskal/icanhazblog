@@ -21,7 +21,7 @@ class Tag
   # OPTIMIZE
   #
   def self.all
-    all_tags = Article.only(:tags).all.map(&:tags).flatten
+    all_tags = Article.where(:visible => true).only(:tags).all.map(&:tags).flatten
     all_tags.inject(Hash.new(0)) { |h,v| h[v] += 1; h }.sort_by { |k,v| -v }
   end
   
