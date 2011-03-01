@@ -34,21 +34,16 @@
   </div>
 
   <div id="navigation">
-    <p><strong>Recent Posts</strong></p>
-    <ul>
-      <li><a href="http://www.free-css.com/">Free CSS Templates</a></li>
-      <li><a href="http://www.free-css.com/free-css-layouts.php">Free CSS Layouts</a></li>
-    </ul>
-  </div>
+    
+    <%= render :partial => "layouts/recent_posts" %>
+    
+    <%= render :partial => "layouts/tags_menu" %>
   
-  <div id="tags_menu">
-    <p><strong>Tags</strong></p>
-    <p><%= raw list_of_tags(Tag.all.sort) %></p>
+    <%= render :partial => "layouts/date_range_menu" %>
+  
+    <%= render :partial => "layouts/twitter_stream" %>
+  
   </div>
-
-  <%= render :partial => "layouts/date_range_menu" %>
-
-  <%= render :partial => "layouts/twitter_stream" %>
   
   <div id="footer">
     <p>&copy; 2011 Lukáš Stejskal</p>
