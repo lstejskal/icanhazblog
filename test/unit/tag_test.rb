@@ -59,8 +59,8 @@ class TagTest < ActiveSupport::TestCase
       Article.all.each { |article| article.destroy }
     end    
 
-    should "find all unique tags from articles" do
-      assert "rails,ruby,sinatra", Tag.all.sort.join(",")
+    should "find unique tags from articles ordered by occurence" do      
+      assert_equal [["ruby", 2], ["rails", 1], ["sinatra", 1]], Tag.all
     end
 
   end

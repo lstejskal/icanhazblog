@@ -15,11 +15,14 @@ class Tag
     self.where(:name => name).first
   end
 
-  # return all unique tags from articles
+  # return all tags and their occurence from articles
+  # ordered from the highest occurence to lowest
+  #
   # OPTIMIZE
-  # TODO return also occurence of tags
+  #
   def self.all
-    Article.only(:tags).all.map(&:tags).flatten.uniq
+    all_tags = Article.only(:tags).all.map(&:tags).flatten
+    all_tags.inject(Hash.new(0)) { |h,v| h[v] += 1; h }.sort_by { |k,v| -v }
   end
   
 end

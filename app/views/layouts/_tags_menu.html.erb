@@ -1,5 +1,9 @@
 
 <div id="tags_menu">
   <p><strong>Tags</strong></p>
-  <p><%= raw list_of_tags(Tag.all.sort) %></p>
+  <p>
+  <% Tag.all.each do |tag_name, tag_occurence| %>
+    <%= search_link_to("#{tag_name} (#{tag_occurence})", :tag => tag_name) %>
+  <% end %>
+  </p>
 </div>
