@@ -52,6 +52,12 @@ class Article
     q.paginate(params)
   end
 
+  # return recently published articles
+  #
+  def self.recent(nr = 5)
+    self.list(:per_page => nr)
+  end
+  
   # make article visible to users
   def publish!
     self.visible = true

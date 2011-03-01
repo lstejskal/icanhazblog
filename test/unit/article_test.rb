@@ -142,6 +142,24 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
+  context "Article.recent method" do
+    setup do
+      Factory.create(:article_ruby)
+      Factory.create(:article_rails)
+      Factory.create(:article_sinatra)
+    end
+    
+    should "return specific number of recently published articles" do
+      articles = Article.recent(2)
+      assert_equal 2, articles.count
+    end
+
+    should "order articles  by date in descending order" do
+      articles = Article.recent
+      assert "I like sinatra", articles.first.title
+    end
+  end
+
   context "When sanitizing parameters for listing/search, it" do
 
     should "symbolize keys" do
