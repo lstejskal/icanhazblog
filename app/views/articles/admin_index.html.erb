@@ -7,7 +7,7 @@
     </div>
 
     <div class="article_content">
-      <%= raw article.content.truncate(200, :separator => " ") %>
+      <%= formatted_text article.content.truncate(200, :separator => " ") %>
     </div>
 
     <div class="article_box_footer">

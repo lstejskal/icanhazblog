@@ -35,6 +35,7 @@ GEM
     bson (1.2.1)
     bson_ext (1.2.1)
     builder (2.1.2)
+    coderay (0.9.7)
     columnize (0.3.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -103,6 +104,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   bson_ext (= 1.2.1)
+  coderay
   factory_girl
   fakeweb
   mocha

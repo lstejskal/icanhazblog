@@ -12,4 +12,18 @@ module ArticlesHelper
     end
   end
   
+  # wrapper for articles' content formatting 
+  #
+  def formatted_text(text)
+    raw(coderay(text))
+  end
+  
+  # generate syntax highlighting for <code lang="ruby">...</code> segments
+  #
+  def coderay(text = "")
+    text.gsub(/\<code( lang="(.+?)")?\>(.+?)\<\/code\>/m) do  
+      CodeRay.scan($3, $2).div(:css => :class, :line_numbers => :table)  
+    end
+  end
+  
 end
