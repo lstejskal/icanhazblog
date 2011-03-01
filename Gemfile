@@ -14,12 +14,15 @@ gem 'rails', '3.0.4'
 # use debugger
 gem 'ruby-debug19'
 
-# set up mongo adapters and gems
+# mongodb
 gem 'mongo', '1.2.1'
 gem 'bson_ext', '1.2.1'
 gem 'mongoid', '= 2.0.0.rc.6'
 
+# password encryption
 gem 'bcrypt-ruby', :require => 'bcrypt' 
+
+# to be removed
 gem 'nifty-generators'
 
 group :development, :test do
