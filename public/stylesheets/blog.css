@@ -1,4 +1,14 @@
 
+/* navigation */
+
+div#tags_menu{background:#CCC8B3;float:right;clear:right;width:200px}
+
+div#date_range_menu{background:#CCC8B3;float:right;clear:right;width:200px}
+
+div#twitter_stream_box{background:#CCC8B3;float:right;clear:right;width:200px}
+
+/* articles */
+
 div.article_box { margin-bottom: 2em; }
 
 div.article_title { font-size: larger; font-weight: bold; }
@@ -15,14 +25,26 @@ div.comment_box {
     margin-bottom: 0.5em;
 }
 
-div.comment_title { font-weight: bold; padding: 0.3em; }
+div.comment_title {
+    font-weight: bold;
+    padding: 0.3em;
+}
 
-div.comment_content { padding: 0.3em; }
+div.comment_content {
+    padding: 0.3em;
+}
 
 span.comment_published_at {
-    float: right; font-weight: normal; font-style: italic;
+    float: right;
+    font-weight: normal;
+    font-style: italic;
 }
 
 .article_action {
     margin-right: 0.2em;
+}
+
+.article_content p {
+    padding: 0px;
+    margin: 0px;
 }
