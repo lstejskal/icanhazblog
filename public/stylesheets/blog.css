@@ -31,6 +31,17 @@ div.article_box {
     border: 1px silver dashed;
 }
 
+div .article_published_at {
+    color: silver;
+    font-size: larger;
+    font-weight: normal;
+    font-variant: normal;
+    font-family: Impact, sans-serif;
+    letter-spacing: 1.5px;
+    color: #bbb;
+    margin-bottom: 0.5em;
+}
+
 div .article_title {
     font-size: x-large;
     font-weight: normal;
@@ -49,6 +60,12 @@ div .article_title {
     text-decoration: underline;
 }
 
+.article_footer {
+    border: 1px gray dashed;
+    width: auto;
+    padding: 5px 10px;
+}
+ 
 
 div#article_comments {
     margin: 1em;
