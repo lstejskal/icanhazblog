@@ -6,6 +6,10 @@
 <% @articles.each do |article| %>
   
   <div class="admin_article_box">
+    <div class="article_published_at">
+      <%= formatted_date article.published_at %>
+    </div>
+        
     <div class="article_title">
       <%= link_to article.title, article  %>
     </div>
@@ -16,16 +20,12 @@
 
     <div class="article_box_footer">
 
-      <div class="article_comments_num">
+      <div class="comments">
         <%= article.comments.count %>&nbsp;comments
       </div>
 
-      <div class="article_tags">
+      <div class="tags">
         Tags: <%= raw list_of_tags(article.tags) %>
-      </div>
-      
-      <div class="article_published_at">
-        Published: <%= formatted_date article.published_at %>
       </div>
 
     </div>
