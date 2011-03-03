@@ -50,10 +50,10 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   def create    
-    @article = Article.new(params[:article])
-
     # TODO move into model as chain-alias method?
     params[:article][:tags] = params[:article][:tags].to_s.split(/[\s,]+/)
+
+    @article = Article.new(params[:article])
 
     respond_to do |format|
       if @article.save
