@@ -2,11 +2,12 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-# create admin account
-User.create(
-  :email => 'admin@email.com',
-  :password => 'letsblog!',
-  :nickname => 'admin',
-  :admin => true
-)
+# create admin account (attributes are protected against mass assignment)
+u = User.new
+u.email = 'admin@email.com'
+u.password = 'letsblog!'
+u.nickname = 'admin'
+u.admin = true
+u.save!
+
 
