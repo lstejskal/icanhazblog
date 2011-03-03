@@ -1,6 +1,7 @@
 module ArticlesHelper
   
   def list_of_tags(tags = [])
+    return "none" if tags.empty?
     tags.map { |tag_name| search_link_to(tag_name, :tag => tag_name) }.join(" ")
   end
   
