@@ -4,11 +4,9 @@
 
 # create admin account
 User.create(
-  :email => 'lstejskal@email.com',
+  :email => 'admin@email.com',
   :password => 'letsblog!',
-  :nickname => 'lstejskal',
+  :nickname => 'admin',
   :admin => true
 )
 
-# create basic tags
-%w{ ruby rails sinatra padrino python }.each { |tag_name| Tag.create(:name => tag_name) }
