@@ -1,5 +1,8 @@
 
   <div class="article_box">
+    <div class="article_published_at">
+      <%= formatted_date @article.published_at %>
+    </div>
 
     <div class="article_title">
       <%= @article.title %>
@@ -9,65 +12,28 @@
       <%= formatted_text(@article.content) %>
     </div>
 
-    <div class="article_box_footer">
-
-      <div class="article_tags">
-        Tags: <%= raw list_of_tags(@article.tags) %>
-      </div>
-      
-      <div class="article_published_at">
-        Published: <%= formatted_date @article.published_at %>
-      </div>
-
+    <div class="tags">
+        <span class="title">Tags:</span>
+        <%= raw list_of_tags(@article.tags) %>
     </div>
 
-    <div id="article_new_comment">
-      <%= form_for :comment, :url => article_comments_path(@article) do |form| %>
-        <% if current_user %>
-          <div class="field">
-            <%= current_user.nickname %>
-          </div>  
-        <% else %>
-          <div class="field">
-            <%= form.label :user_nickname %><br />
-            <%= form.text_field :user_nickname %>
-          </div>      
-  
-          <div class="field">
-            <%= form.label :user_location %> (optional)<br />
-            <%= form.text_field :user_location %>
-          </div>
-        <% end %>
-
-        <div class="field">
-          <%= form.label :title %><br />
-          <%= form.text_field :title %>
-        </div>      
-
-        <div class="field">
-          <%= form.label :content %><br />
-          <%= form.text_area :content, :cols => 20, :rows => 5 %>
-        </div>
-        
-        <div class="actions">
-          <%= form.submit %>
-        </div>        
-      <% end %>
-    </div>
 
     <div id="article_comments">
+        <div class="section_title">Comments:</div>
 
       <% @article.comments.each do |comment| %>
-        <div class="comment_box">
-          <div class="comment_title">
-            <%= user_info(comment) %>
-            <%= comment.title %>
-            <span class="comment_published_at">            
-              <%= comment.created_at %>
-            </span>
+        <div class="comment">
+          <div class="header">
+            <div class="title">
+              <%= comment.title %>
+            </div>
+              
+            <div class="author">
+              Posted by <span class="info"><%= user_info(comment) %></span>
+              at <span class="published_at"><%= formatted_date comment.created_at %></span>
+            </div>
           </div>
-          
-          <div class="comment_content">
+          <div class="content">
             <%= comment.content %>
           </div>
           
@@ -77,6 +43,43 @@
             <% end %>
           </div>
         </div>
+      <% end %>
+    </div>
+
+    
+    <div id="article_new_comment">
+      <div class="section_title">Add your comment:</div>
+      
+      <%= form_for :comment, :url => article_comments_path(@article) do |form| %>
+        <% if current_user %>
+          <div class="field">
+            <%= current_user.nickname %>
+          </div>  
+        <% else %>
+          <div class="field">
+            <%= form.label :user_nickname, "What's your name?" %><br />
+            <%= form.text_field :user_nickname %>
+          </div>      
+  
+          <div class="field">
+            <%= form.label :user_location, "Where are you from?" %> (optional)<br />
+            <%= form.text_field :user_location %>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= form.label :title, "Comment title " %><br />
+          <%= form.text_field :title %>
+        </div>      
+
+        <div class="field">
+          <%= form.label :content, "Comment text" %><br />
+          <%= form.text_area :content, :cols => 30, :rows => 4 %>
+        </div>
+        
+        <div class="actions">
+          <%= form.submit :value => "Add comment" %>
+        </div>        
       <% end %>
     </div>
     
