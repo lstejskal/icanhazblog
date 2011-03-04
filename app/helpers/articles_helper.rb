@@ -5,11 +5,13 @@ module ArticlesHelper
     tags.map { |tag_name| search_link_to(tag_name, :tag => tag_name) }.join(" ")
   end
   
+  # print information about user above comments
+  #
   def user_info(comment)
     if comment.user_nickname.present?
-      comment.user_nickname + (comment.user_location ? " (%s)" % comment.user_location : "") + ": "
+      comment.user_nickname + (comment.user_location ? " (%s)" % comment.user_location : "")
     else
-      ""
+      "anonymous"
     end
   end
   
