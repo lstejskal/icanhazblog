@@ -4,7 +4,7 @@ module ArticlesHelper
   #  
   def list_of_tags(tags = [])
     return "none" if tags.empty?
-    tags.map { |tag_name| search_link_to(tag_name, :tag => tag_name) }.join(" ")
+    tags.map { |tag_name| search_link_to(tag_name, :tag => tag_name) }.join(", ")
   end
 
   # display list of all tags with their occurence in blog articles
@@ -12,7 +12,7 @@ module ArticlesHelper
   def tag_cloud
     Tag.all.map do |tag_name, tag_occurence|
       search_link_to("#{tag_name} (#{tag_occurence})", { :tag => tag_name }, { :class => "nobr" })
-    end.join(" ")
+    end.join(", ")
   end
   
   # print information about user above comments
