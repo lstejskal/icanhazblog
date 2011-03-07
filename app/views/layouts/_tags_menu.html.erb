@@ -3,8 +3,6 @@
   <div class="title">Tags</div>
 
   <div class="content">
-    <% Tag.all.each do |tag_name, tag_occurence| %>
-      <%= search_link_to "#{tag_name} (#{tag_occurence})", { :tag => tag_name }, { :class => "nobr" } %>
-    <% end %>
+    <%= raw tag_cloud() %>
   </div>
 </div>
