@@ -1,9 +1,10 @@
 
 <div id="tags_menu">
-  <p><strong>Tags</strong></p>
-  <p>
-  <% Tag.all.each do |tag_name, tag_occurence| %>
-    <%= search_link_to("#{tag_name} (#{tag_occurence})", :tag => tag_name) %>
-  <% end %>
-  </p>
+  <div class="title">Tags</div>
+
+  <div class="content">
+    <% Tag.all.each do |tag_name, tag_occurence| %>
+      <%= search_link_to "#{tag_name} (#{tag_occurence})", :tag => tag_name %>
+    <% end %>
+  </div>
 </div>

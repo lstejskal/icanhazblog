@@ -1,6 +1,9 @@
 
 <div id="date_range_menu">
-  <p><strong>Date Range</strong></p>
-  <p><%= search_link_to "this month", { :from => Date.current.beginning_of_month, :to => Date.current } %></p>
-  <p><%= search_link_to "last month", { :from => Date.current.prev_month.beginning_of_month, :to => Date.current.prev_month.end_of_month } %></p>
+  <div class="title">Date Range</div>
+
+  <div class="content">
+    <%= search_link_to "this month", { :from => Date.current.beginning_of_month, :to => Date.current } %>, 
+    <%= search_link_to "last month", { :from => Date.current.prev_month.beginning_of_month, :to => Date.current.prev_month.end_of_month } %>
+  </div>
 </div>

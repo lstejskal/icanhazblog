@@ -1,7 +1,13 @@
 
-<p><strong>Recent Articles</strong></p>
-<ul>
-    <% Article.recent.each do |article| %>
-      <li><%= link_to article.title.truncate(30), article %></li>
-    <% end %>
-</ul>
+<div id="recent_articles_menu">
+    <div class="title">Recent Articles</div>
+    
+    <div class="content_list">
+        <ul>
+            <% Article.recent.each do |article| %>
+              <li><%= link_to article.title.truncate(30), article %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+

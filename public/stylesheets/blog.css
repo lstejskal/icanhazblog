@@ -1,25 +1,82 @@
 
 /* navigation */
 
-div#tags_menu{
-    background:#F3F2ED;
+div#navigation{
+    margin: 1em 10px 1em 0;
     float:right;
-    clear:right;
     width:200px
 }
 
-div#date_range_menu{
+#navigation .title {
+    margin: 0;
+    padding: 3px 5px;
+    background-color: gray;
+    color: #F3F2ED;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+div#navigation .content{
+    padding: 10px 5px;
+}
+
+div#navigation .content_list{
+    padding: 5px 5px;
+}
+
+
+div#navigation ul{
+    margin: 0;
+    padding: 5px 0px 0px;
+    list-style-type: none;
+}
+
+div#navigation li{
+    margin-bottom:5px;
+}
+
+div#navigation p{
+    padding: 0;
+    margin: 0;
+}
+
+div#recent_articles_menu{
+    border: 1px gray solid;
+    background: #CCC8B3;
+    float:right;
+    clear:right;
+    width: 100%;
+}
+
+div#tags_menu{
+    border: 1px gray solid;
     background:#CCC8B3;
     float:right;
     clear:right;
-    width:200px
+    width: 100%;
+}
+
+div#date_range_menu{
+    border: 1px gray solid;
+    background:#CCC8B3;
+    float:right;
+    clear:right;
+    width: 100%;
 }
 
 div#twitter_stream_box {
     background:#CCC8B3;
     float:right;
     clear:right;
-    width:200px
+    width:200px;
+}
+
+div.menu_separator {
+    background: #F3F2ED;
+    float:right;
+    clear:right;
+    width:200px;
+    margin-bottom: 0,5em;
 }
 
 /* articles */
