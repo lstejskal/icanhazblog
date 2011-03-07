@@ -4,7 +4,7 @@
 
   <div class="content">
     <% Tag.all.each do |tag_name, tag_occurence| %>
-      <%= search_link_to "#{tag_name} (#{tag_occurence})", :tag => tag_name %>
+      <%= search_link_to "#{tag_name} (#{tag_occurence})", { :tag => tag_name }, { :class => "nobr" } %>
     <% end %>
   </div>
 </div>

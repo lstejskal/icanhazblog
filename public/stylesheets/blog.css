@@ -127,6 +127,10 @@ div .article_title {
     font-weight: bold;
 }
 
+a.nobr {
+    white-space: nowrap;
+}
+
 #article_box .tags .title {
     font-weight: bold;
 }
