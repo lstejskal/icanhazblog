@@ -79,3 +79,8 @@ finished milestone 1:
 - deploy blog to server
 - update css for sidebar menu
 - update tag links in sidebar
+
+28.3.
+- fix bug in db:generate_random_articles rake task
+- fix combined searches in sidebar - drop params from previous searches
+- refactor Article#sanitize_search_params method
