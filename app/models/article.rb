@@ -73,14 +73,12 @@ class Article
   
   protected
   
-  ALLOWED_SEARCH_KEYS = %w{ page per_page tag from to show_hidden order } 
+  ALLOWED_SEARCH_KEYS = [ :page, :per_page, :tag, :from, :to, :show_hidden, :order ] 
   
-  # keep only allowed parameters and symbolize them
+  # keep only allowed parameters and symbolize their keys
   #
   def self.sanitize_search_params(params = {})
-    Hash[ params.to_a.map do |k,v|
-      ALLOWED_SEARCH_KEYS.include?(k.to_s) ? [ k.to_sym, v ] : nil
-    end.compact ]
+    params.symbolize_keys.select { |k,v| ALLOWED_SEARCH_KEYS.include?(k) }
   end
   
 end
