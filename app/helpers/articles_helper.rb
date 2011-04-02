@@ -34,8 +34,11 @@ module ArticlesHelper
   # generate syntax highlighting for <code lang="ruby">...</code> segments
   #
   def coderay(text = "")
-    text.gsub(/\<code( lang="(.+?)")?\>(.+?)\<\/code\>/m) do  
-      CodeRay.scan($3, $2).div(:css => :class, :line_numbers => :table)  
+    text.gsub(/\<code( lang="(.+?)")?\>\s*(.+?)\<\/code\>/m) do  
+      CodeRay.scan($3, $2).div( :css => :class,
+        :line_numbers => :inline,
+        :tab_width => 2
+      )  
     end
   end
   
