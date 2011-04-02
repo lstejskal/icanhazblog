@@ -196,7 +196,7 @@ div.comment .content {
     padding: 10px 10px;
 }
 
-#article_new_comment .section_title {
+.section_title {
     font-size: larger;
     font-weight: normal;
     font-variant: normal;
@@ -206,4 +206,9 @@ div.comment .content {
     margin-bottom: 0.5em;
 
     
+}
+
+.inline_code {
+    font-style: italic;
+    letter-spacing: 1px;
 }
