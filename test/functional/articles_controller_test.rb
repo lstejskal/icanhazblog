@@ -65,8 +65,14 @@ class ArticlesControllerTest < ActionController::TestCase
       assert_nil flash.alert
     end
 
-    should "view article" do
+    should "view article by id" do
       get :show, :id => @article.to_param
+      assert_response :success
+      assert_equal @article.to_param, assigns(:article).to_param
+    end
+
+    should "view article by alias (= parameterized name)" do
+      get :show, :id => @article.alias
       assert_response :success
       assert_equal @article.to_param, assigns(:article).to_param
     end

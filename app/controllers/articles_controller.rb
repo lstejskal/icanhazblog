@@ -24,8 +24,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1
+  # PS: preferred method to access articles by alias
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find_by_alias(params[:id]) || Article.find(params[:id])
       rescue raise(ActionController::RoutingError, "Sorry, that article doesn't exist.")
 
     respond_to do |format|
