@@ -33,7 +33,23 @@ class ArticleTest < ActiveSupport::TestCase
       another_article.title = @article.title
       assert ! another_article.save
     end
+
+    should "generate alias from title" do
+      @article.save
+      assert_equal @article.alias, @article.title.parameterize
+    end
     
+  end
+
+  context "When editing Article, it" do
+
+    should "automatically update alias if title changes" do
+      @article.save
+      new_title = "Big News!"
+      @article.update_attributes(:title => new_title)
+      assert_equal @article.alias, new_title.parameterize
+    end
+  
   end
 
   context "When listing articles, it" do
@@ -110,6 +126,22 @@ class ArticleTest < ActiveSupport::TestCase
     
     should "raise exception if id doesn't exists" do
       assert_raise( BSON::InvalidObjectId ){ Article.find("123") }
+    end
+  end
+
+  context "When finding article by alias" do
+    should "alias should be by default equal to parameterized title" do
+      @article.save
+      assert_equal @article.alias, @article.title.parameterize
+    end
+    
+    should "return Article if alias exists" do
+      @article.save
+      assert_equal @article.title, Article.find_by_alias(@article.alias).title
+    end
+    
+    should "return nil if alias doesn't exists" do
+      assert_nil Article.find_by_alias("123")
     end
   end
 
