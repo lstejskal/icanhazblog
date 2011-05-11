@@ -7,7 +7,7 @@
     </div>
 
     <div class="article_title">
-      <%= link_to article.title, article  %>
+      <%= link_to article.title, article_path( :id => article.alias ) %>
     </div>
 
     <div class="article_content">
