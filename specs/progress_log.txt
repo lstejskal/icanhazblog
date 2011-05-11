@@ -84,3 +84,13 @@ finished milestone 1:
 - fix bug in db:generate_random_articles rake task
 - fix combined searches in sidebar - drop params from previous searches
 - refactor Article#sanitize_search_params method
+
+2.4.
+- update code formatting (through coderay)
+
+28.4.
+- cache javascript and css includes in production
+
+11.5.
+- add Article.alias attribute, implement searching articles by alias
+
