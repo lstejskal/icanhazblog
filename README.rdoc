@@ -20,4 +20,6 @@ Specification are available at link:specs directory.
 5. If you want to see sime dummy blog posts in the application, run:
        rake db:generate_random_articles
 
-6. Run <tt>rails server</tt> and go to http://localhost:3000/
+6. Set up API keys for reCAPTCHA (https://github.com/ambethia/recaptcha)
+
+7. Run <tt>rails server</tt> and go to http://localhost:3000/

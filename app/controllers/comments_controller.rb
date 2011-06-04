@@ -15,12 +15,20 @@ class CommentsController < ApplicationController
         end
       end
       
+      unless verify_recaptcha(:model => @comment, :message => "Captcha is invalid")
+        raise "captcha error"
+      end
+
       raise "validation error" unless @comment.valid?
+
       @article.comments << @comment
       
       flash[:notice] = "Comment was added."
       redirect_to article_path(params[:article_id])
     rescue
+      # don't display default recaptcha errors
+      flash.delete(:recaptcha_error)
+
       # TO DO: display errors in comment form
       flash[:alert] = "Comment could not be added." + @comment.errors.full_messages.join(" ")
       render :template => "articles/show"

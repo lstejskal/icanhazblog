@@ -1,10 +1,10 @@
 .bundle
 *.kpf
 config/mongoid.yml
+config/initializers/recaptcha.rb
 db/*.sqlite3
 log/*.log
 doc/app/
 tmp/
 public/javascripts/icanhazblog.js
 public/stylesheets/icanhazblog.css
-

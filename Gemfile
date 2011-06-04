@@ -25,6 +25,9 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 # syntax highlighting
 gem 'coderay'
 
+# captcha in comment forms
+gem 'recaptcha', :require => 'recaptcha/rails'
+
 # to be removed
 gem 'nifty-generators'
 

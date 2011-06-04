@@ -94,3 +94,7 @@ finished milestone 1:
 11.5.
 - add Article.alias attribute, implement searching articles by alias
 
+5.6.
+- add captcha for verification when adding comment
+
+
