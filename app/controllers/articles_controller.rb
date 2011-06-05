@@ -98,6 +98,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
+    flash[:notice] = "The article was deleted."
 
     respond_to do |format|
       format.html { redirect_to(articles_url) }
