@@ -22,6 +22,9 @@ gem 'mongoid', '= 2.0.0.rc.6'
 # password encryption
 gem 'bcrypt-ruby', :require => 'bcrypt' 
 
+# template handler
+gem 'haml'
+
 # syntax highlighting
 gem 'coderay'
 
