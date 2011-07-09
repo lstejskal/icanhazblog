@@ -1,0 +1,8 @@
+
+#recent_articles_menu
+    .title Recent Articles
+    
+    .content_list
+        %ul
+            - Article.recent.each do |article|
+                %li= link_to article.title.truncate(30), article_path(:id => article.alias)

@@ -1,0 +1,50 @@
+!!! Strict
+
+%html
+  %head
+    %title Ruby, Rails and all that code
+    = stylesheet_link_tag "styles", "blog", "coderay",
+      :cache => "icanhazblog", :recursive => true
+    = javascript_include_tag :defaults,
+      :cache => "icanhazblog", :recursive => true
+    %script{ :src => "http://widgets.twimg.com/j/2/widget.js" }
+    = csrf_meta_tag
+    %meta{ "http-equiv" => "content-type", :content => "text/html; charset=utf-8" }
+
+  %body
+    #container
+
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash#{name}"
+  
+      - if current_user
+        #admin_menu
+          = "Logged in as %s" % current_user.nickname
+          = link_to "Log out", log_out_path
+  
+      #header
+        %h1= link_to "Ruby, Rails And All That Code", root_path
+        %h2 by Lukas Stejskal
+  
+      #wrapper
+        #content
+          = yield
+  
+      #navigation
+      
+        = render :partial => "layouts/recent_articles"
+      
+        .menu_separator &nbsp
+      
+        = render :partial => "layouts/tags_menu"
+  
+        .menu_separator &nbsp;
+    
+        = render :partial => "layouts/date_range_menu"
+  
+        .menu_separator &nbsp;
+    
+        = render :partial => "layouts/twitter_stream"
+      
+      #footer
+        %p &copy; 2011 Lukas Stejskal
