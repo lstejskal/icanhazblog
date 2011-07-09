@@ -4,40 +4,39 @@
 div#navigation{
     margin: 1em 10px 1em 0;
     float:right;
-    width:200px
-}
+    width:200px;
 
-#navigation .title {
-    margin: 0;
-    padding: 3px 5px;
-    background-color: gray;
-    color: #F3F2ED;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+    .title {
+        margin: 0;
+        padding: 3px 5px;
+        background-color: gray;
+        color: #F3F2ED;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
 
-div#navigation .content{
-    padding: 10px 5px;
-}
+    .content{
+        padding: 10px 5px;
+    }
 
-div#navigation .content_list{
-    padding: 5px 5px;
-}
+    .content_list{
+        padding: 5px 5px;
+    }
 
+    ul{
+        margin: 0;
+        padding: 5px 0px 0px;
+        list-style-type: none;
+    }
 
-div#navigation ul{
-    margin: 0;
-    padding: 5px 0px 0px;
-    list-style-type: none;
-}
-
-div#navigation li{
-    margin-bottom:5px;
-}
-
-div#navigation p{
-    padding: 0;
-    margin: 0;
+    li{
+        margin-bottom:5px;
+    }
+    
+    p{
+        padding: 0;
+        margin: 0;
+    }
 }
 
 div#recent_articles_menu{
@@ -88,7 +87,7 @@ div.article_box {
     border: 1px silver dashed;
 }
 
-div .article_published_at {
+div.article_published_at {
     color: silver;
     font-size: larger;
     font-weight: normal;
@@ -99,22 +98,20 @@ div .article_published_at {
     margin-bottom: 0.5em;
 }
 
-div .article_title {
+div.article_title {
     font-size: x-large;
     font-weight: normal;
     font-variant: normal;
     font-family: Impact, sans-serif;
     letter-spacing: 1.5px;
     color: gray;
-}
 
-.article_title a {
-    color: gray;
-    text-decoration: none;
-}
+    a {
+        color: gray;
+        text-decoration: none;
 
-.article_title a:hover {
-    text-decoration: underline;
+        &:hover { text-decoration: underline; }
+    }
 }
 
 .article_footer {
@@ -138,46 +135,45 @@ a.nobr {
 div#article_comments {
     margin-top: 1em;
     margin-bottom: 1em;
-}
 
-#article_comments .section_title {
-    font-size: larger;
-    font-weight: normal;
-    font-variant: normal;
-    font-family: Impact, sans-serif;
-    letter-spacing: 1px;
-    color: gray;
-    margin-bottom: 0.5em;
+    .section_title {
+        font-size: larger;
+        font-weight: normal;
+        font-variant: normal;
+        font-family: Impact, sans-serif;
+        letter-spacing: 1px;
+        color: gray;
+        margin-bottom: 0.5em;
+    }
 }
-
 
 div.comment {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     border: 1px silver solid;
-}
+    
+    .header {
+        width: auto;
+        background: #eee;
+        padding: 0.3em 0.5em 0.3em ;
+        border-bottom: 1px silver solid;
+    }
 
-div.comment .header {
-    width: auto;
-    background: #eee;
-    padding: 0.3em 0.5em 0.3em ;
-    border-bottom: 1px silver solid;
-}
+    .title {
+        font-weight: bold;
+    }
 
-div.comment .title {
-    font-weight: bold;
-}
+    .author .info {
+        font-weight: bold;
+    }
 
-div.comment .author .info {
-    font-weight: bold;
-}
+    .author .published_at {
+        font-style: italic;
+    }
 
-div.comment .author .published_at {
-    font-style: italic;
-}
-
-div.comment .content {
-    padding: 0.3em;
+    .content {
+        padding: 0.3em;
+    }
 }
 
 .article_action {
@@ -185,9 +181,7 @@ div.comment .content {
 }
 
 .article_content p {
-    /* top right bottom left */
     padding: 0 0 0 0;
-    /* top right,left bottom */
     margin: 1em 0 1em;
 }
 

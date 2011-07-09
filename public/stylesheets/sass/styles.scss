@@ -6,11 +6,11 @@ html,body {
 body {
     font-family: "Trebuchet MS", Arial, sans-serif;
     font-size: small;
-    text-align: left
+    text-align: left;
 }
 
 p {
-    margin:0 10px 10px
+    margin:0 10px 10px;
 }
 
 
@@ -22,7 +22,6 @@ div#header{
     background-color: #F3F2ED;
     border-bottom: 1px gray solid;
     height:100px;
-    /* line-height:80px; */
 
     margin:0;
     padding:0;
@@ -43,10 +42,10 @@ div#header h1 {
 #header a {
     color: silver;
     text-decoration: none;
-}
 
-#header a:hover {
-    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 div#header h2 {
@@ -71,10 +70,8 @@ div#container{
 div#content{
     float:left;
     width: 580px;
-}
 
-div#content p {
-    line-height:1.4;
+    p { line-height:1.4; }
 }
 
 /* footer */
@@ -86,9 +83,6 @@ div#footer{
     color: gray;
     text-align: right;
     border-top: 1px gray solid;
-}
 
-div#footer p{
-    margin:0;
-    padding:5px 10px;
+    p { margin:0; padding:5px 10px; }
 }
