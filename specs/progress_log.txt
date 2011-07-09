@@ -99,4 +99,5 @@ finished milestone 1:
 
 9.7.
 - switch templates to HAML
+- switch CSS to Sass
 
