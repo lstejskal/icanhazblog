@@ -10,7 +10,7 @@ div#navigation{
         margin: 0;
         padding: 3px 5px;
         background-color: gray;
-        color: #F3F2ED;
+        color: $light-gray;
         font-weight: bold;
         letter-spacing: 1px;
     }
@@ -40,38 +40,38 @@ div#navigation{
 }
 
 div#recent_articles_menu{
-    border: 1px gray solid;
-    background: #CCC8B3;
+    border: $gray-border;
+    background: $dark-gray;
     float:right;
     clear:right;
     width: 100%;
 }
 
 div#tags_menu{
-    border: 1px gray solid;
-    background:#CCC8B3;
+    border: $gray-border;
+    background:$dark-gray;
     float:right;
     clear:right;
     width: 100%;
 }
 
 div#date_range_menu{
-    border: 1px gray solid;
-    background:#CCC8B3;
+    border: $gray-border;
+    background:$dark-gray;
     float:right;
     clear:right;
     width: 100%;
 }
 
 div#twitter_stream_box {
-    background:#CCC8B3;
+    background:$dark-gray;
     float:right;
     clear:right;
     width:200px;
 }
 
 div.menu_separator {
-    background: #F3F2ED;
+    background: $light-gray;
     float:right;
     clear:right;
     width:200px;
@@ -79,6 +79,7 @@ div.menu_separator {
 }
 
 /* articles */
+
 
 div.article_box {
     background: #fff;
@@ -97,6 +98,7 @@ div.article_published_at {
     color: #bbb;
     margin-bottom: 0.5em;
 }
+
 
 div.article_title {
     font-size: x-large;
@@ -132,6 +134,7 @@ a.nobr {
     font-weight: bold;
 }
 
+
 div#article_comments {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -147,6 +150,7 @@ div#article_comments {
     }
 }
 
+
 div.comment {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -159,6 +163,7 @@ div.comment {
         border-bottom: 1px silver solid;
     }
 
+
     .title {
         font-weight: bold;
     }
@@ -167,14 +172,17 @@ div.comment {
         font-weight: bold;
     }
 
+
     .author .published_at {
         font-style: italic;
     }
+
 
     .content {
         padding: 0.3em;
     }
 }
+
 
 .article_action {
     margin-right: 0.2em;

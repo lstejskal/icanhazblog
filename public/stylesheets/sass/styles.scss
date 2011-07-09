@@ -1,3 +1,9 @@
+
+$light-gray = #F3F2ED;
+$dark-gray = #CCC8B3;
+
+$gray-border = 1pxx gray solid;
+
 html,body {
     margin:0;
     padding:0;
@@ -19,8 +25,8 @@ a {
 }
 
 div#header{
-    background-color: #F3F2ED;
-    border-bottom: 1px gray solid;
+    background-color: $light-gray;
+    border-bottom: $gray-border;
     height:100px;
 
     margin:0;
@@ -62,9 +68,9 @@ div#header h2 {
 }
 
 div#container{
-    width:800px;
-    margin:0 auto;
-    background:#F3F2ED;
+    width: 800px;
+    margin: 0 auto;
+    background: $light-gray;
 }
 
 div#content{
@@ -79,10 +85,10 @@ div#content{
 div#footer{
     clear: both;
     width: 100%;
-    background-color: #F3F2ED;
+    background-color: $light-gray;
     color: gray;
     text-align: right;
-    border-top: 1px gray solid;
+    border-top: $gray-border;
 
     p { margin:0; padding:5px 10px; }
 }
