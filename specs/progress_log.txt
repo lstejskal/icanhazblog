@@ -97,4 +97,6 @@ finished milestone 1:
 5.6.
 - add captcha for verification when adding comment
 
+9.7.
+- switch templates to HAML
 
