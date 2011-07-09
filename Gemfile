@@ -23,6 +23,9 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 # template handler
 gem 'haml'
 
+# css extension
+gem 'sass'
+
 # syntax highlighting
 gem 'coderay'
 
