@@ -1,9 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
-
-# use edge rails
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.0.9'
 
 # specify web server
 # gem 'unicorn'
@@ -15,8 +12,9 @@ gem 'rails', '3.0.4'
 gem 'ruby-debug19'
 
 # mongodb
-gem 'mongo', '1.2.1'
-gem 'bson_ext', '1.2.1'
+gem 'mongo', '1.3.1'
+gem 'bson_ext', '1.3.1'
+# TODO update to 2.0.x
 gem 'mongoid', '= 2.0.0.rc.6'
 
 # password encryption
