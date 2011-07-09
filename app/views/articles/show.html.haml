@@ -1,0 +1,64 @@
+
+.article_box
+  .article_published_at= formatted_date @article.published_at
+
+  .article_title= @article.title
+
+  .article_content= formatted_text(@article.content)
+
+  .tags
+    %span.title Tags:
+    = raw list_of_tags(@article.tags)
+
+  #article_comments
+    .section_title Comments:
+
+    - @article.comments.each do |comment|
+      .comment
+        .header
+          .title= comment.title
+            
+          .author
+            = "Posted by "
+            %span.info= user_info(comment)
+            = " at "
+            %span.published_at= formatted_date comment.created_at
+
+        .content= comment.content
+        
+        %div
+          - if current_user.try(:admin?)
+            = link_to("delete", [ @article, comment ], :confirm => "Are you sure?", :method => :delete)
+
+  - form_for :comment, :url => article_comments_path(@article) do |form|
+  
+    #article_new_comment
+      .section_title Add your comment:
+    
+      - if current_user
+        .field= current_user.nickname
+      - else
+        .field
+          = form.label :user_nickname, "What's your name?"
+          %br
+          = form.text_field :user_nickname
+
+        .field
+          = form.label(:user_location, "Where are you from?") + " (optional)"
+          %br
+          = form.text_field :user_location
+
+      .field
+        = form.label :title, "Comment title "
+        %br
+        = form.text_field :title
+
+      .field
+        = form.label :content, "Comment text"
+        %br
+        = form.text_area :content, :cols => 30, :rows => 4
+      
+      .field= recaptcha_tags
+      
+      .actions= form.submit :value => "Add comment"
+

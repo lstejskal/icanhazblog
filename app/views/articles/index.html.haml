@@ -1,0 +1,17 @@
+
+- @articles.each do |article|
+
+  .article_box
+    .article_published_at= formatted_date(article.published_at)
+
+    .article_title= link_to article.title, article_path(:id => article.alias)
+
+    .article_content= formatted_text(article.content)
+
+    .article_footer
+
+      .comments= raw "#{article.comments.count}&nbsp;comments"
+      
+      .tags
+        %span Tags:
+        = raw list_of_tags(article.tags)

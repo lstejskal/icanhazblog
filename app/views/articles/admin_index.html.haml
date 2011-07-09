@@ -1,0 +1,36 @@
+
+#add_article= link_to "Add article", new_article_path
+
+- @articles.each do |article|
+
+  .admin_article_box
+    
+    .article_published_at= formatted_date article.published_at
+
+    .article_title= link_to article.title, article
+
+    .article_content
+      = formatted_text article.content.truncate(200, :separator => " ")
+
+    .article_box_footer
+
+      .comments= "#{article.comments.count} comments"
+
+      .tags
+        %span Tags:
+        = raw list_of_tags(article.tags)
+
+    .article_actions
+
+      = button_to "edit", { :action => "edit", :id => article.to_param },
+        :method => :get, :class => "article_action"
+
+      - if article.visible?
+        = button_to "hide", { :action => "hide", :id => article.to_param },
+          :method => :post, :class => "article_action"
+      - else
+        = button_to "publish", { :action => "publish", :id => article.to_param },
+          :method => :post, :class => "article_action"
+
+      = button_to "delete", { :action => "destroy", :id => article.to_param },
+        :confirm => "Are you sure?", :method => :delete, :class => "article_action"
