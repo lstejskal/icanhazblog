@@ -13,8 +13,8 @@
     #container
 
       - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash#{name}"
-  
+        %div.flash{:id => name}= msg
+        
       - if current_user
         #admin_menu
           = "Logged in as %s" % current_user.nickname
@@ -26,6 +26,7 @@
   
       #wrapper
         #content
+        
           = yield
   
       #navigation

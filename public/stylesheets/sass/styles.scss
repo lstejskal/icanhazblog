@@ -526,4 +526,26 @@ div.comment {
     letter-spacing: 1px;
 }
 
+.flash {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 100%;
+
+    &#alert {
+        color: darkred;
+        background-color: red;
+        border-bottom: 2px darkred solid;
+    }
+    
+    &#notice {
+        color: darkgreen;
+        background-color: lightgreen;
+        border-bottom: 2px darkgreen solid;
+    }
+}
+
 @import "coderay";

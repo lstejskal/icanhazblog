@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
 
       @article.comments << @comment
       
+      flash.delete(:recaptcha_error)
       flash[:notice] = "Comment was added."
       redirect_to article_path(params[:article_id])
     rescue
