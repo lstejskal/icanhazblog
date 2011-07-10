@@ -278,7 +278,6 @@ div.comment {
     }
 }
 
-
 .article_action {
     margin-right: 0.2em;
 }
@@ -491,6 +490,15 @@ div.comment {
 
 .article_action {
     margin-right: 0.2em;
+}
+
+.article_actions td {
+    margin: 0;
+    padding: 0;
+}
+
+.article_box_footer {
+    margin-bottom: 1.5em;
 }
 
 .article_content p {

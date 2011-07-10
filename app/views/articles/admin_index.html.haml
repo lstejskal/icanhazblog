@@ -20,17 +20,22 @@
         %span Tags:
         = raw list_of_tags(article.tags)
 
-    .article_actions
-
-      = button_to "edit", { :action => "edit", :id => article.to_param },
-        :method => :get, :class => "article_action"
-
-      - if article.visible?
-        = button_to "hide", { :action => "hide", :id => article.to_param },
-          :method => :post, :class => "article_action"
-      - else
-        = button_to "publish", { :action => "publish", :id => article.to_param },
-          :method => :post, :class => "article_action"
-
-      = button_to "delete", { :action => "destroy", :id => article.to_param },
-        :confirm => "Are you sure?", :method => :delete, :class => "article_action"
+      .article_actions
+        %table
+          %tr
+            %td
+              = button_to "edit", { :action => "edit", :id => article.to_param },
+                :method => :get, :class => "article_action"
+  
+            - if article.visible?
+              %td  
+                = button_to "hide", { :action => "hide", :id => article.to_param },
+                  :method => :post, :class => "article_action"
+            - else
+              %td
+                = button_to "publish", { :action => "publish", :id => article.to_param },
+                  :method => :post, :class => "article_action"
+  
+            %td  
+              = button_to "delete", { :action => "destroy", :id => article.to_param },
+                :confirm => "Are you sure?", :method => :delete, :class => "article_action"
