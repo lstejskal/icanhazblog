@@ -30,7 +30,7 @@
           - if current_user.try(:admin?)
             = link_to("delete", [ @article, comment ], :confirm => "Are you sure?", :method => :delete)
 
-  - form_for :comment, :url => article_comments_path(@article) do |form|
+  = form_for :comment, :url => article_comments_path(@article) do |form|
   
     #article_new_comment
       .section_title Add your comment:
