@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
       flash.delete(:recaptcha_error)
 
       # TO DO: display errors in comment form
-      flash[:alert] = "Comment could not be added." + @comment.errors.full_messages.join(" ")
+      flash[:alert] = "Comment could not be added."
       render :template => "articles/show"
     end
   end

@@ -548,4 +548,32 @@ div.comment {
     }
 }
 
+/* errors */
+
+#errorExplanation {
+    border: 2px solid darkred;
+    margin-top: 0;
+    padding-top: 0;
+    
+    h2 {
+        margin-top: 0;
+        padding: 0.5em;
+        
+        background-color: darkred;
+        color: white;    
+    }
+}
+
+.field_with_errors {
+    padding: 2px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: darkred;
+    display: inline;
+
+    input, textarea {
+        border: 2px darkred solid;
+    }  
+}
+
 @import "coderay";
