@@ -86,15 +86,58 @@ class CommentTest < ActiveSupport::TestCase
       @article.destroy
     end
 
-    should "delete the Comment" do
+    should "delete the comment" do
       first_comment = @article.comments.first
       
-      @article.comments.where("_id" => first_comment.id).delete_all
+      @article.comments.find(first_comment.id).destroy
       @article = Article.find(@article.to_param)
 
       assert_equal 1, @article.comments.count
     end
 
   end
+
+  context "Finding comment by id in article" do
+
+    setup do
+      @article = Factory.create( :article,
+        :comments => 2.times.map { Factory.build(:comment) }
+      )
+    end
+      
+    teardown do
+      @article.destroy
+    end
+
+    should "raise exception with id belonging to other article" do
+      @another_article = Factory.create( :article,
+        :comments => [ Factory.build(:comment) ]
+      )
+      
+      # TODO fix to work with assert_raise
+      #
+      @error = nil
+      begin
+        @article.comments.find(@another_article.comments.first.id)
+      rescue Exception => e
+        @error = e
+      end
+      
+      assert @error.is_a?(Mongoid::Errors::DocumentNotFound)
+        
+      @another_article.destroy
+    end
+
+    should "succeed with valid id" do
+      last_comment = @article.comments.last
+      
+      found_comment = @article.comments.find(last_comment.id)
+
+      assert found_comment.is_a?(Comment)
+      assert_equal last_comment.title, found_comment.title
+    end
+
+  end
+
 
 end
