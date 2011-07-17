@@ -2,6 +2,7 @@
 *.kpf
 config/mongoid.yml
 config/initializers/recaptcha.rb
+config/initializers/secret_token.rb
 db/*.sqlite3
 log/*.log
 doc/app/
