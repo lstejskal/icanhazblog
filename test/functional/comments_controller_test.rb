@@ -4,7 +4,7 @@ class CommentsControllerTest < ActionController::TestCase
 
   def setup
     @article = Factory.create( :article,
-      :comments => 2.times.map { Factory.create(:comment) }
+      :comments => 2.times.map { Factory.build(:comment) }
     )
     
     comment = Factory.build(:comment)
