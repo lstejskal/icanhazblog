@@ -1,5 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
+# recaptcha fix
+# https://github.com/ambethia/recaptcha/issues/7
+require 'net/http'
+
 # use rails without active record
 # require 'rails/all'
 require "action_controller/railtie"
