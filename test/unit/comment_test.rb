@@ -2,57 +2,53 @@ require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
   
-  context "When creating Comment, it" do
+  context "Comment validation" do
 
     setup do
       @comment = Factory.build(:comment)
     end
-      
-    teardown do
-      @comment.destroy
-    end
-
-    should "not save without title" do
+  
+    should "require title" do
       @comment.title = nil
-      assert ! @comment.save
+      assert ! @comment.valid?
     end
 
-    should "not save with content" do
+    should "require content" do
       @comment.content = nil
-      assert ! @comment.save
+      assert ! @comment.valid?
     end
 
-    should "not save with title over max. length" do
+    should "fail for title over max. length" do
       @comment.title = random_string(101)
-      assert ! @comment.save
+      assert ! @comment.valid?
     end
 
-    should "not save with content over max. length" do
+    should "fail for content over max. length" do
       @comment.content = random_string(501)
-      assert ! @comment.save
+      assert ! @comment.valid?
     end
 
-    should "not save with user_nickname over max. length" do
+    should "fail for user_nickname over max. length" do
       @comment.user_nickname = random_string(51)
-      assert ! @comment.save
+      assert ! @comment.valid?
     end
 
-    should "not save with user_location over max. length" do
+    should "fail for user_location over max. length" do
       @comment.user_location = random_string(51)
-      assert ! @comment.save
+      assert ! @comment.valid?
     end
 
-    should "save with valid data" do
-      assert @comment.save
+    should "pass for valid data" do
+      assert @comment.valid?
     end
 
   end
 
-  context "When adding Comment to Article, it" do
-
+  context "Adding Comment to Article" do
+    
     setup do
       @article = Factory.create( :article,
-        :comments => 2.times.map { Factory.create(:comment) }
+        :comments => 2.times.map { Factory.build(:comment) }
       )
     end
       
@@ -60,7 +56,7 @@ class CommentTest < ActiveSupport::TestCase
       @article.destroy
     end
 
-    should "not save with invalid data" do
+    should "fail with invalid data" do
       @article.comments << Comment.new()
       assert ! @article.save
       assert_equal :comments, @article.errors.keys.first
@@ -69,7 +65,7 @@ class CommentTest < ActiveSupport::TestCase
       assert_equal 2, @article.comments.count
     end
     
-    should "save with valid data" do
+    should "succeed with valid data" do
       @article.comments << Factory.build(:comment)      
       @article = Article.find(@article.to_param)
       
@@ -78,11 +74,11 @@ class CommentTest < ActiveSupport::TestCase
 
   end
 
-  context "When deleting Comment from Article, it" do
+  context "Deleting comment by _id from article" do
 
     setup do
       @article = Factory.create( :article,
-        :comments => 2.times.map { Factory.create(:comment) }
+        :comments => 2.times.map { Factory.build(:comment) }
       )
     end
       
@@ -90,8 +86,10 @@ class CommentTest < ActiveSupport::TestCase
       @article.destroy
     end
 
-    should "delete Comment from the list" do      
-      @article.comments.first.destroy
+    should "delete the Comment" do
+      first_comment = @article.comments.first
+      
+      @article.comments.where("_id" => first_comment.id).delete_all
       @article = Article.find(@article.to_param)
 
       assert_equal 1, @article.comments.count

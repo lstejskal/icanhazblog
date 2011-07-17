@@ -12,7 +12,8 @@ class Article
   field :visible, :type => Boolean, :default => false
   field :published_at, :type => DateTime
   
-  embeds_many :comments
+  embeds_many :comments, :inverse_of => :article
+  
   # TODO implement as relational reference?
   field :tags, :type => Array, :default => []
 
