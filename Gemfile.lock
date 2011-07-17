@@ -99,6 +99,7 @@ GEM
     turn (0.8.2)
       ansi (>= 1.2.2)
     tzinfo (0.3.29)
+    will_paginate (2.3.15)
 
 PLATFORMS
   ruby
@@ -119,3 +120,4 @@ DEPENDENCIES
   sass
   shoulda
   turn
+  will_paginate (= 2.3.15)

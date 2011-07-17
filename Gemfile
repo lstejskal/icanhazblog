@@ -13,6 +13,9 @@ gem 'mongoid', '2.0.2'
 # password encryption
 gem 'bcrypt-ruby', :require => 'bcrypt' 
 
+# pagination for mongoid
+gem 'will_paginate', '2.3.15'
+
 # template handler
 gem 'haml'
 
