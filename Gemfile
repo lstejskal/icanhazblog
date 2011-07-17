@@ -8,8 +8,7 @@ gem 'rails', '3.0.9'
 # mongodb
 gem 'mongo', '1.3.1'
 gem 'bson_ext', '1.3.1'
-# TODO update to 2.0.x
-gem 'mongoid', '= 2.0.0.rc.6'
+gem 'mongoid', '2.0.2'
 
 # password encryption
 gem 'bcrypt-ruby', :require => 'bcrypt' 
