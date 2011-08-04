@@ -80,6 +80,43 @@ class ArticlesControllerTest < ActionController::TestCase
     should "get 404 error when viewing non-existent article" do    
       assert_raise(ActionController::RoutingError) { get :show, :id => "123" }  
     end
+
+    should "view article by alias including year and month" do
+      get :show, :id => @article.alias, :year => @article.published_at.year,
+      :month => sprintf("%02d", @article.published_at.month)
+    end
+    
+    should "/articles/YYYY should display all articles for given year" do
+      year = @article.published_at.year
+      @article.published_at = @article.published_at + 1.year
+      @article.save
+
+      get :index, :year => year
+      assert_response :success
+      assert_equal 2, assigns(:articles).size
+    end
+
+    # these tests are brittle and break if :month is in another :year
+    # TODO hardcode dates into factories' default values
+    #
+    should "/articles/YYYY/MM should display all articles for given month" do
+      month = sprintf("%02d", @article.published_at.month)
+      @article.published_at = @article.published_at + 1.month
+      @article.save
+      
+      get :index, { :year => @article.published_at.year, :month => month }
+      assert_response :success
+      assert_equal 2, assigns(:articles).size
+    end
+
+    should "get 404 error when given invalid year in /articles url" do
+      assert_raise(ActionController::RoutingError) { get '/articles/20112' }  
+      assert_raise(ActionController::RoutingError) { get '/articles/20112/03'  }  
+    end
+
+    should "get 404 error when given invalid month in /articles url" do
+      assert_raise(ActionController::RoutingError) { get '/articles/2011/033' }  
+    end
   
   end
   

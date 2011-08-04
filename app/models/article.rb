@@ -88,7 +88,7 @@ class Article
   
   protected
   
-  ALLOWED_SEARCH_KEYS = [ :page, :per_page, :tag, :from, :to, :show_hidden, :order ] 
+  ALLOWED_SEARCH_KEYS = [ :page, :per_page, :tag, :from, :to, :show_hidden, :order, :year, :month ] 
   
   # keep only allowed parameters and symbolize their keys
   #

@@ -3,5 +3,5 @@
   .title Date Range
 
   .content
-    = search_link_to("this month", { :from => Date.current.beginning_of_month, :to => Date.current }) + "," 
-    = search_link_to "last month", { :from => Date.current.prev_month.beginning_of_month, :to => Date.current.prev_month.end_of_month }
+    = search_link_to("this month", { :year => Date.current.year, :month => sprintf("%02d", Date.current.month) }) + "," 
+    = search_link_to("last month", { :year => 1.month.ago.year, :month => sprintf("%02d", 1.month.ago.month) })
