@@ -39,6 +39,21 @@ class Article
   #
   def self.list(params = {})    
     params = self.sanitize_search_params(params)
+
+    # transform :year and :month params to :from and :to params
+    # OPTIMIZE why not search by year/month/day indexes instead?
+    # TODO deal with incorrect dates that can't be parsed
+    if params[:year].present? && (params[:year].to_s =~ /^\d{4}$/)
+      if params[:month].present? && (params[:month].to_s =~ /^\d{2}$/)
+        date_from = Date.parse("#{params[:year]}/#{params[:month]}/01")
+        params[:from] = date_from.to_s
+        params[:to] = date_from.end_of_month.to_s
+      else
+        date_from = Date.parse("#{params[:year]}/01/01")
+        params[:from] = date_from.to_s
+        params[:to] = date_from.end_of_year.to_s
+      end
+    end
     
     params[:page] ||= 1
     params[:per_page] ||= 10

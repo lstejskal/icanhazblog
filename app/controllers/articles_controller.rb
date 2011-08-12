@@ -5,23 +5,6 @@ class ArticlesController < ApplicationController
   # GET /articles
   # TODO move admin listing to admin/article controller
   def index
-    # transform :year and :month params to :from and :to params
-    # OPTIMIZE why not search by year/month/day indexes instead?
-    # TODO move it to Article.list method
-    # TODO deal with incorrect dates that can't be parsed
-    # TODO tests
-    if params[:year].present? && (params[:year].to_s =~ /^\d{4}$/)
-      if params[:month].present? && (params[:month].to_s =~ /^\d{2}$/)
-        date_from = Date.parse("#{params[:year]}/#{params[:month]}/01")
-        params[:from] = date_from.to_s
-        params[:to] = date_from.end_of_month.to_s
-      else
-        date_from = Date.parse("#{params[:year]}/01/01")
-        params[:from] = date_from.to_s
-        params[:to] = date_from.end_of_year.to_s
-      end
-    end
-
     if admin?
       params[:show_hidden] ||= true
       params[:order] ||= "updated_at"

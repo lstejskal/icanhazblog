@@ -1,21 +1,11 @@
 Icanhazblog::Application.routes.draw do
 
-  # OPTIMIZE
-  # constraints(:year => /\d{4}/, :month => /\d{2}/) do
-  #   get 'articles/:year/:month/:id' => 'articles#show',
-  #   get 'articles/:year(/:month)' => 'articles#index'
-  # end
-
-  # articles can be found by /year/month
-  # PS: articles/yyyy/mm/id == articles/id
-  get 'articles/:year/:month/:id' => 'articles#show',
-    :year => /\d{4}/, :month => /\d{2}/
-  # articles/yyyyy/mm -> all articles for given month
-  get 'articles/:year/:month' => 'articles#index',
-    :year => /\d{4}/, :month => /\d{2}/
-   # articles/yyyyy -> all articles for given year
-  get 'articles/:year' => 'articles#index',
-    :year => /\d{4}/
+  constraints(:year => /\d{4}/, :month => /\d{2}/) do
+    # PS: articles/yyyy/mm/id == articles/id
+    get 'articles/:year/:month/:id' => 'articles#show'
+    # articles/yyyyy(/mm) -> all articles for given year (and month)
+    get 'articles/:year(/:month)' => 'articles#index'
+  end
 
   resources :articles do
     member do
