@@ -30,4 +30,7 @@ Specifications are available at link:specs directory.
 * Set up your tracking code
        public/javascripts/tracking_code.js.example -> tracking_code.js
 
+* Set up production environment
+       config/environments/production.rb.example -> production.rb
+
 * Run <tt>rails server</tt> and go to http://localhost:3000/
