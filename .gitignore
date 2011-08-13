@@ -8,4 +8,5 @@ log/*.log
 doc/app/
 tmp/
 public/javascripts/icanhazblog.js
+public/javascripts/tracking_code.js
 public/stylesheets/*.css
