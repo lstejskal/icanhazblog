@@ -6,27 +6,28 @@ gem 'rails', '3.0.9'
 # gem 'unicorn'
 
 # mongodb
-gem 'mongo', '1.3.1'
-gem 'bson_ext', '1.3.1'
-gem 'mongoid', '2.0.2'
+gem 'mongo', '~> 1.3'
+gem 'bson_ext', '~> 1.3'
+gem 'mongoid', '~> 2.1'
 
 # password encryption
 gem 'bcrypt-ruby', :require => 'bcrypt' 
 
 # pagination for mongoid
-gem 'will_paginate', '2.3.15'
+# PS: 3.0 doesn't work with mongodb yet
+gem 'will_paginate', '~> 2.3'
 
 # template handler
-gem 'haml'
+gem 'haml', '~> 3.1'
 
 # css extension
-gem 'sass'
+gem 'sass', '~> 3.1'
 
 # syntax highlighting
-gem 'coderay'
+gem 'coderay', '~> 0.9'
 
 # captcha in comment forms
-gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'recaptcha', '~> 0.3', :require => 'recaptcha/rails'
 
 # debugging is allowed by default
 # in development environment
@@ -43,4 +44,3 @@ group :development, :test do
   gem 'fakeweb'
   gem 'mocha'
 end
-
