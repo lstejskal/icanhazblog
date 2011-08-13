@@ -4,7 +4,7 @@
   .article_box
     .article_published_at= formatted_date(article.published_at)
 
-    .article_title= link_to article.title, article_path(:id => article.alias)
+    .article_title= link_to_article(article)
 
     .article_content= formatted_text(article.content)
 

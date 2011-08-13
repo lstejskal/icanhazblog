@@ -5,4 +5,4 @@
     .content_list
         %ul
             - Article.recent.each do |article|
-                %li= link_to article.title.truncate(30), article_path(:id => article.alias)
+                %li= link_to_article(article, :title => article.title.truncate(30))
