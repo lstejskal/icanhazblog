@@ -2,9 +2,9 @@ Icanhazblog::Application.routes.draw do
 
   constraints(:year => /\d{4}/, :month => /\d{2}/) do
     # PS: articles/yyyy/mm/id == articles/id
-    get 'articles/:year/:month/:id' => 'articles#show'
+    get 'articles/:year/:month/:id' => 'articles#show', :as => 'yyyy_mm_article'
     # articles/yyyyy(/mm) -> all articles for given year (and month)
-    get 'articles/:year(/:month)' => 'articles#index'
+    get 'articles/:year(/:month)' => 'articles#index', :as => 'yyyy_mm_articles'
   end
 
   resources :articles do

@@ -35,8 +35,18 @@ class ArticleTest < ActiveSupport::TestCase
     end
 
     should "generate alias from title" do
-      @article.save
+      @article.save      
       assert_equal @article.alias, @article.title.parameterize
+    end
+
+    should "have year param (as string) equal to the year of published_at date" do
+      @article.save
+      assert_equal @article.year, @article.published_at.year.to_s
+    end
+
+    should "have month param (as string) equal to the month of published_at date" do
+      @article.save
+      assert_equal @article.month, sprintf("%02d", @article.published_at.month)
     end
     
   end

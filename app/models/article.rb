@@ -23,6 +23,14 @@ class Article
   validates_uniqueness_of :title
   validates_length_of :title, :minimum => 3, :maximum => 250
 
+  def year
+    self.published_at.year.to_s
+  end
+
+  def month
+    sprintf("%02d", self.published_at.month)
+  end
+
   def update_alias
     self.alias = self.title.to_s.parameterize
   end
