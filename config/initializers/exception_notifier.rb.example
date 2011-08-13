@@ -1,0 +1,5 @@
+
+Icanhazblog::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[ICANHAZBLOG ERROR] ",
+  :sender_address => %{"Exception Notifier" <exception.notifier@icanhazblog.com>},
+  :exception_recipients => %w{name.surname@icanhazblog.com}

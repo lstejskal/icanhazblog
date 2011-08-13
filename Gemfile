@@ -29,6 +29,9 @@ gem 'coderay', '~> 0.9'
 # captcha in comment forms
 gem 'recaptcha', '~> 0.3', :require => 'recaptcha/rails'
 
+# exception reporting
+gem 'exception_notification', '~> 2.4', :require => 'exception_notifier'
+
 # debugging is allowed by default
 # in development environment
 group :development do

@@ -1,6 +1,7 @@
 .bundle
 *.kpf
 config/mongoid.yml
+config/initializers/exception_notifier.rb
 config/initializers/recaptcha.rb
 config/initializers/secret_token.rb
 db/*.sqlite3
