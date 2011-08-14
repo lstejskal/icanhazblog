@@ -2,7 +2,7 @@
 
 Icanhazblog is a blog application running on MongoDB and Rails 3.
 
-Specifications are available at link:specs directory.
+Database schema is available at link:specs directory.
 
 == Installation
 
@@ -34,3 +34,7 @@ Specifications are available at link:specs directory.
        config/environments/production.rb.example -> production.rb
 
 * Run <tt>rails server</tt> and go to http://localhost:3000/
+
+== TODO
+
+link:TODO

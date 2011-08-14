@@ -1,0 +1,14 @@
+== TODO
+
+* create rake tasks for setting up blog (instead of renaming bunch of files as
+  described in README)
+
+* make blog easier configurable - move blog title and similar "constants" to
+  configuration or localizations
+  
+* implement <i>error page</i> and <i>not found</i> page
+
+* update to Rails 3.1
+
+* <b>Multiple designs</b> - admin can add multiple designs, users can switch between
+  them
