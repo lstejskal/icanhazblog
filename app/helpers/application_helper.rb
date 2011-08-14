@@ -20,6 +20,6 @@ module ApplicationHelper
   # example: Thursday, March 03, 2011 
   #
   def formatted_date(date)
-    date.present? ? date.strftime("%A, %B %m, %Y") : ""
+    date.present? ? date.strftime("%A, %B %d, %Y") : ""
   end
 end
