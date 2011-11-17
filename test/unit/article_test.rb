@@ -135,7 +135,7 @@ class ArticleTest < ActiveSupport::TestCase
     end
     
     should "raise exception if id doesn't exists" do
-      assert_raise( BSON::InvalidObjectId ){ Article.find("123") }
+      assert_raise( Mongoid::Errors::DocumentNotFound ){ Article.find("123") }
     end
   end
 
