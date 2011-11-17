@@ -51,7 +51,7 @@ class ArticleTest < ActiveSupport::TestCase
     
   end
 
-  context "When editing Article, it" do
+  context "Editing Article" do
 
     should "automatically update alias if title changes" do
       @article.save
@@ -62,7 +62,7 @@ class ArticleTest < ActiveSupport::TestCase
   
   end
 
-  context "When listing articles, it" do
+  context "Listing articles" do
 
     setup do
       Factory.create(:article_ruby)
@@ -128,7 +128,7 @@ class ArticleTest < ActiveSupport::TestCase
     
   end
 
-  context "When finding article by id" do
+  context "Finding article by id" do
     should "return Article if id exists" do
       @article.save
       assert_equal @article.title, Article.find(@article.to_param).title
@@ -139,7 +139,7 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
-  context "When finding article by alias" do
+  context "Finding article by alias" do
     should "alias should be by default equal to parameterized title" do
       @article.save
       assert_equal @article.alias, @article.title.parameterize
@@ -202,7 +202,7 @@ class ArticleTest < ActiveSupport::TestCase
     end
   end
 
-  context "When sanitizing parameters for listing/search, it" do
+  context "Sanitizing Article parameters for listing/search" do
 
     should "symbolize keys" do
       params = Article.sanitize_search_params("page" => 1, :per_page => 10)
