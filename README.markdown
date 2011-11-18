@@ -44,6 +44,15 @@ Icanhazblog is a blog application running on MongoDB and Rails 3.
 
 * create rake task for setting up blog (instead describing these tasks in README)
 
+### Switch from MongoDB to MySQL ###
+
+Yeah, MongoDB is way cooler that MySQL, it's hipster cool. But let's face it,
+it's overkill for a simple blog application. My main reason for moving to MySQL
+(I'm also considering other SQL databases) is that MongoDB takes way too much
+space for a such a small database.
+
+The MongoDB code will still be available under +mongodb+ tag.
+
 ## Author ##
 
 2010-2011 Lukas Stejskal
