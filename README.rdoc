@@ -37,4 +37,12 @@ Database schema is available at link:specs directory.
 
 == TODO
 
-link:TODO
+* create rake tasks for setting up blog (instead of renaming bunch of files as
+  described in README)
+
+* make blog easier configurable - move blog title and similar "constants" to
+  configuration or localizations
+
+== Author
+
+2010-2011 Lukas Stejskal
