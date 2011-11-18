@@ -32,7 +32,7 @@ class CommentsControllerTest < ActionController::TestCase
 
     setup do      
       @admin_user = Factory.create(:admin_user)
-      @controller.expects(:current_user).at_least(2).returns(@admin_user)
+      @controller.expects(:current_user).at_least(1).returns(@admin_user)
     end
 
     teardown do
