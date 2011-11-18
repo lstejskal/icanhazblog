@@ -27,8 +27,8 @@ Icanhazblog is a blog application running on MongoDB and Rails 3.
 * Set up your secret token:
 `config/initializers/secret_token.rb.example -> secret_token.rb`
 
-* Set up your tracking code
-`public/javascripts/tracking_code.js.example -> tracking_code.js`
+* (Optional) set up your tracking code for Google Analytics, etc.
+`app/assets/javascripts/tracking_code.js.example -> tracking_code.js`
 
 * Set up production environment
 `config/environments/production.rb.example -> production.rb`
@@ -41,8 +41,6 @@ Icanhazblog is a blog application running on MongoDB and Rails 3.
 
 * make blog easier configurable - move blog title and similar "constants" to
   configuration or localizations
-
-* create rake task for setting up blog (instead describing these tasks in README)
 
 ### Switch from MongoDB to MySQL ###
 
