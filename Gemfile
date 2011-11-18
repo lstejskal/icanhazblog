@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '~> 3.1.0'
 
-# specify web server
-# gem 'unicorn'
+# TODO try "rainbows" web server
+# gem 'rainbows'
 
 # mongodb
 gem 'mongo', '~> 1.3'
@@ -41,6 +41,7 @@ end
 # some test utilities can be used even in rails console
 # during development
 group :development, :test do
+  gem 'minitest'
   gem 'shoulda'
   gem 'turn'
   gem 'factory_girl'
