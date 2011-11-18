@@ -1,0 +1,499 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: small;
+  text-align: left; }
+
+p {
+  margin: 0 10px 10px; }
+
+a {
+  color: #483d8b; }
+
+div#header {
+  background-color: #f3f2ed;
+  border-bottom: 1pxx gray solid;
+  height: 100px;
+  margin: 0;
+  padding: 0; }
+
+div#header h1 {
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: xx-large;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 2px; }
+
+#header a {
+  color: silver;
+  text-decoration: none; }
+  #header a:hover {
+    text-decoration: underline; }
+
+div#header h2 {
+  margin: 0;
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: large;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1.5px;
+  color: gray; }
+
+div#container {
+  width: 800px;
+  margin: 0 auto;
+  background: #f3f2ed; }
+
+div#content {
+  float: left;
+  width: 580px; }
+  div#content p {
+    line-height: 1.4; }
+
+/* footer */
+div#footer {
+  clear: both;
+  width: 100%;
+  background-color: #f3f2ed;
+  color: gray;
+  text-align: right;
+  border-top: 1pxx gray solid; }
+  div#footer p {
+    margin: 0;
+    padding: 5px 10px; }
+
+/* navigation */
+div#navigation {
+  margin: 1em 10px 1em 0;
+  float: right;
+  width: 200px; }
+  div#navigation .title {
+    margin: 0;
+    padding: 3px 5px;
+    background-color: gray;
+    color: #f3f2ed;
+    font-weight: bold;
+    letter-spacing: 1px; }
+  div#navigation .content {
+    padding: 10px 5px; }
+  div#navigation .content_list {
+    padding: 5px 5px; }
+  div#navigation ul {
+    margin: 0;
+    padding: 5px 0px 0px;
+    list-style-type: none; }
+  div#navigation li {
+    margin-bottom: 5px; }
+  div#navigation p {
+    padding: 0;
+    margin: 0; }
+
+div#recent_articles_menu {
+  border: 1pxx gray solid;
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 100%; }
+
+div#tags_menu {
+  border: 1pxx gray solid;
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 100%; }
+
+div#date_range_menu {
+  border: 1pxx gray solid;
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 100%; }
+
+div#twitter_stream_box {
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 200px; }
+
+div.menu_separator {
+  background: #f3f2ed;
+  float: right;
+  clear: right;
+  width: 200px;
+  margin-bottom: 0,5em; }
+
+/* articles */
+div.article_box {
+  background: #fff;
+  margin: 1em;
+  padding: 1em;
+  border: 1px silver dashed; }
+
+div.article_published_at {
+  color: silver;
+  font-size: larger;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1.5px;
+  color: #bbb;
+  margin-bottom: 0.5em; }
+
+div.article_title {
+  font-size: x-large;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1.5px;
+  color: gray; }
+  div.article_title a {
+    color: gray;
+    text-decoration: none; }
+    div.article_title a:hover {
+      text-decoration: underline; }
+
+.article_footer {
+  border: 1px gray dashed;
+  width: auto;
+  padding: 5px 10px; }
+
+.tags .title {
+  font-weight: bold; }
+
+a.nobr {
+  white-space: nowrap; }
+
+#article_box .tags .title {
+  font-weight: bold; }
+
+div#article_comments {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  div#article_comments .section_title {
+    font-size: larger;
+    font-weight: normal;
+    font-variant: normal;
+    font-family: Impact, sans-serif;
+    letter-spacing: 1px;
+    color: gray;
+    margin-bottom: 0.5em; }
+
+div.comment {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px silver solid; }
+  div.comment .header {
+    width: auto;
+    background: #eee;
+    padding: 0.3em 0.5em 0.3em;
+    border-bottom: 1px silver solid; }
+  div.comment .title {
+    font-weight: bold; }
+  div.comment .author .info {
+    font-weight: bold; }
+  div.comment .author .published_at {
+    font-style: italic; }
+  div.comment .content {
+    padding: 0.3em; }
+
+.article_action {
+  margin-right: 0.2em; }
+
+.article_content p {
+  padding: 0 0 0 0;
+  margin: 1em 0 1em; }
+
+#article_new_comment {
+  border: 1px silver solid;
+  padding: 10px 10px; }
+
+.section_title {
+  font-size: larger;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1px;
+  color: gray;
+  margin-bottom: 0.5em; }
+
+.inline_code {
+  font-style: italic;
+  letter-spacing: 1px; }
+
+/* navigation */
+div#navigation {
+  margin: 1em 10px 1em 0;
+  float: right;
+  width: 200px; }
+  div#navigation .title {
+    margin: 0;
+    padding: 3px 5px;
+    background-color: gray;
+    color: #f3f2ed;
+    font-weight: bold;
+    letter-spacing: 1px; }
+  div#navigation .content {
+    padding: 10px 5px; }
+  div#navigation .content_list {
+    padding: 5px 5px; }
+  div#navigation ul {
+    margin: 0;
+    padding: 5px 0px 0px;
+    list-style-type: none; }
+  div#navigation li {
+    margin-bottom: 5px; }
+  div#navigation p {
+    padding: 0;
+    margin: 0; }
+
+div#recent_articles_menu {
+  border: 1pxx gray solid;
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 100%; }
+
+div#tags_menu {
+  border: 1pxx gray solid;
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 100%; }
+
+div#date_range_menu {
+  border: 1pxx gray solid;
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 100%; }
+
+div#twitter_stream_box {
+  background: #ccc8b3;
+  float: right;
+  clear: right;
+  width: 200px; }
+
+div.menu_separator {
+  background: #f3f2ed;
+  float: right;
+  clear: right;
+  width: 200px;
+  margin-bottom: 0,5em; }
+
+/* articles */
+div.article_box {
+  background: #fff;
+  margin: 1em;
+  padding: 1em;
+  border: 1px silver dashed; }
+
+div.article_published_at {
+  color: silver;
+  font-size: larger;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1.5px;
+  color: #bbb;
+  margin-bottom: 0.5em; }
+
+div.article_title {
+  font-size: x-large;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1.5px;
+  color: gray; }
+  div.article_title a {
+    color: gray;
+    text-decoration: none; }
+    div.article_title a:hover {
+      text-decoration: underline; }
+
+.article_footer {
+  border: 1px gray dashed;
+  width: auto;
+  padding: 5px 10px; }
+
+.tags .title {
+  font-weight: bold; }
+
+a.nobr {
+  white-space: nowrap; }
+
+#article_box .tags .title {
+  font-weight: bold; }
+
+div#article_comments {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  div#article_comments .section_title {
+    font-size: larger;
+    font-weight: normal;
+    font-variant: normal;
+    font-family: Impact, sans-serif;
+    letter-spacing: 1px;
+    color: gray;
+    margin-bottom: 0.5em; }
+
+div.comment {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border: 1px silver solid; }
+  div.comment .header {
+    width: auto;
+    background: #eee;
+    padding: 0.3em 0.5em 0.3em;
+    border-bottom: 1px silver solid; }
+  div.comment .title {
+    font-weight: bold; }
+  div.comment .author .info {
+    font-weight: bold; }
+  div.comment .author .published_at {
+    font-style: italic; }
+  div.comment .content {
+    padding: 0.3em; }
+
+.article_action {
+  margin-right: 0.2em; }
+
+.article_actions td {
+  margin: 0;
+  padding: 0; }
+
+.article_box_footer {
+  margin-bottom: 1.5em; }
+
+.article_content p {
+  padding: 0 0 0 0;
+  margin: 1em 0 1em; }
+
+#article_new_comment {
+  border: 1px silver solid;
+  padding: 10px 10px; }
+
+.section_title {
+  font-size: larger;
+  font-weight: normal;
+  font-variant: normal;
+  font-family: Impact, sans-serif;
+  letter-spacing: 1px;
+  color: gray;
+  margin-bottom: 0.5em; }
+
+.inline_code {
+  font-style: italic;
+  letter-spacing: 1px; }
+
+.flash {
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 100%; }
+  .flash#alert {
+    color: darkred;
+    background-color: red;
+    border-bottom: 2px darkred solid; }
+  .flash#notice {
+    color: darkgreen;
+    background-color: lightgreen;
+    border-bottom: 2px darkgreen solid; }
+
+/* errors */
+#errorExplanation {
+  border: 2px solid darkred;
+  margin-top: 0;
+  padding-top: 0; }
+  #errorExplanation h2 {
+    margin-top: 0;
+    padding: 0.5em;
+    background-color: darkred;
+    color: white; }
+
+.field_with_errors {
+  padding: 2px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  color: darkred;
+  display: inline; }
+  .field_with_errors input, .field_with_errors textarea {
+    border: 2px darkred solid; }
+
+/* https://github.com/ryanb/railscasts-episodes/blob/master/episode-207/blog/public/stylesheets/coderay.css */
+.CodeRay {
+  background-color: #232323;
+  border: 1px solid black;
+  font-family: 'Courier New', 'Terminal', monospace;
+  color: #E6E0DB;
+  padding: 3px 5px;
+  overflow: auto;
+  font-size: 12px;
+  margin: 12px 0;
+  /* html attribute */
+  /* comment */
+  /* escaped character */
+  /* class */
+  /* constant */
+  /* float */
+  /* function */
+  /* global variable */
+  /* integer */
+  /* inline code */
+  /* instance variable */
+  /* doctype */
+  /* keyword */
+  /* regex */
+  /* string */
+  /* symbol */
+  /* html tag */
+  /* boolean */ }
+  .CodeRay pre {
+    margin: 0px;
+    padding: 0px; }
+  .CodeRay .an {
+    color: #E7BE69; }
+  .CodeRay .c {
+    color: #BC9358;
+    font-style: italic; }
+  .CodeRay .ch {
+    color: #509E4F; }
+  .CodeRay .cl {
+    color: #FFF; }
+  .CodeRay .co {
+    color: #FFF; }
+  .CodeRay .fl {
+    color: #A4C260; }
+  .CodeRay .fu {
+    color: #FFC56D; }
+  .CodeRay .gv {
+    color: #D0CFFE; }
+  .CodeRay .i {
+    color: #A4C260; }
+  .CodeRay .il {
+    background: #151515; }
+  .CodeRay .iv {
+    color: #D0CFFE; }
+  .CodeRay .pp {
+    color: #E7BE69; }
+  .CodeRay .r {
+    color: #CB7832; }
+  .CodeRay .rx {
+    color: #A4C260; }
+  .CodeRay .s {
+    color: #A4C260; }
+  .CodeRay .sy {
+    color: #6C9CBD; }
+  .CodeRay .ta {
+    color: #E7BE69; }
+  .CodeRay .pc {
+    color: #6C9CBD; }

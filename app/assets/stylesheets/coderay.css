@@ -1,0 +1,68 @@
+/* https://github.com/ryanb/railscasts-episodes/blob/master/episode-207/blog/public/stylesheets/coderay.css */
+.CodeRay {
+  background-color: #232323;
+  border: 1px solid black;
+  font-family: 'Courier New', 'Terminal', monospace;
+  color: #E6E0DB;
+  padding: 3px 5px;
+  overflow: auto;
+  font-size: 12px;
+  margin: 12px 0;
+  /* html attribute */
+  /* comment */
+  /* escaped character */
+  /* class */
+  /* constant */
+  /* float */
+  /* function */
+  /* global variable */
+  /* integer */
+  /* inline code */
+  /* instance variable */
+  /* doctype */
+  /* keyword */
+  /* regex */
+  /* string */
+  /* symbol */
+  /* html tag */
+  /* boolean */ }
+  .CodeRay pre {
+    margin: 0px;
+    padding: 0px; }
+  .CodeRay .an {
+    color: #E7BE69; }
+  .CodeRay .c {
+    color: #BC9358;
+    font-style: italic; }
+  .CodeRay .ch {
+    color: #509E4F; }
+  .CodeRay .cl {
+    color: #FFF; }
+  .CodeRay .co {
+    color: #FFF; }
+  .CodeRay .fl {
+    color: #A4C260; }
+  .CodeRay .fu {
+    color: #FFC56D; }
+  .CodeRay .gv {
+    color: #D0CFFE; }
+  .CodeRay .i {
+    color: #A4C260; }
+  .CodeRay .il {
+    background: #151515; }
+  .CodeRay .iv {
+    color: #D0CFFE; }
+  .CodeRay .pp {
+    color: #E7BE69; }
+  .CodeRay .r {
+    color: #CB7832; }
+  .CodeRay .rx {
+    color: #A4C260; }
+  .CodeRay .s {
+    color: #A4C260; }
+  .CodeRay .sy {
+    color: #6C9CBD; }
+  .CodeRay .ta {
+    color: #E7BE69; }
+  .CodeRay .pc {
+    color: #6C9CBD; }
