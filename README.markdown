@@ -1,10 +1,18 @@
-# I Can Haz Blog?! #
+# I Can Haz Blog?!
 
-## Description ##
+## Project Status
+
+*This software is now considered obsolete and no longer actively maintained.*
+
+I decided to move from MongoDB to Mysql and it is such an essential switch
+that instead of creating feature branch, I have create whole new repository:
+ [lstejskal/icanhazblog2](https://github.com/lstejskal/icanhazblog2).
+
+## Description
 
 Icanhazblog is a blog application running on MongoDB and Rails 3.
 
-## Installation ##
+## Installation
 
 * Install required gems:
 `bundle install`
@@ -35,22 +43,6 @@ Icanhazblog is a blog application running on MongoDB and Rails 3.
 
 * Run +rails server+ and go to +http://localhost:3000/+
 
-## TODO ##
+## Author
 
-* use (optionally) Markdown notation to write blog posts instead of HTML
-
-* make blog easier configurable - move blog title and similar "constants" to
-  configuration or localizations
-
-### Switch from MongoDB to MySQL ###
-
-Yeah, MongoDB is way cooler that MySQL, it's hipster cool. But let's face it,
-it's overkill for a simple blog application. My main reason for moving to MySQL
-(I'm also considering other SQL databases) is that MongoDB takes way too much
-space for a such a small database.
-
-The MongoDB code will still be available under +mongodb+ tag.
-
-## Author ##
-
-2010-2011 Lukas Stejskal
+2010-2012 Lukas Stejskal
