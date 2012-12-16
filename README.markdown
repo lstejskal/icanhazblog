@@ -5,7 +5,7 @@
 *This software is now considered obsolete and no longer actively maintained.*
 
 I decided to move from MongoDB to Mysql and it is such an essential switch
-that instead of creating feature branch, I have create whole new repository:
+that instead of creating feature branch, I have created a whole new repository:
  [lstejskal/icanhazblog2](https://github.com/lstejskal/icanhazblog2).
 
 ## Description
