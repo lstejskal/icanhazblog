@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'rake', '~> 10.0.4'
+
 gem 'rails', '3.2.13'
 
 # TODO try "rainbows" web server
@@ -52,8 +54,8 @@ end
 group :development, :test do
   gem 'minitest'
   gem 'shoulda'
-  gem 'turn'
+  gem 'turn' # , '< 0.8.3'
   gem 'factory_girl'
   gem 'fakeweb'
-  gem 'mocha'
+  gem 'mocha', require: 'mocha/setup'
 end
